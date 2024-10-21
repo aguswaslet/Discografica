@@ -21,6 +21,7 @@ public class Artista {
     TreeMap<LocalDate,Recital> Recitales;
     float $rep=0;
     float $UVendidas=0;
+    float $GananciasRecital=0;
 
     public Artista() {
         
@@ -75,12 +76,22 @@ public class Artista {
     }
     
     public float regalias(){
-        ArrayList<Disco> aux;
-        float Total=0,unidades=0,reproducciones=0;
+        ArrayList<Disco> Disc_aux;
+        ArrayList<Recital> Rec_aux;
+        float Total=0,unidades,reproducciones;
         
-        aux = getDiscos();
+        Disc_aux = getDiscos();
         
-        for(Disco n:aux){
+        unidades = 0;
+        reproducciones=0;
+        for(Disco n:Disc_aux){
+            unidades += n.getUnidadesVendidas();
+            reproducciones += n.TotalReproducciones();
+        }
+        
+        unidades = 0;
+        reproducciones=0;
+        for(Disco n:Disc_aux){
             unidades += n.getUnidadesVendidas();
             reproducciones += n.TotalReproducciones();
         }
@@ -94,11 +105,12 @@ public class Artista {
         ArrayList<Disco> Disc_aux = (ArrayList)Discos.values();
         ArrayList<Recital> Rec_aux = (ArrayList)Recitales.values();
         
-        for(Disco n: Disc_aux){
-            System.out.println(n);
-        }
         for(Recital n: Rec_aux){
             System.out.println(n);
+        }
+        for(Disco n: Disc_aux){
+            System.out.println(n);
+            n.info();
         }
     }
 }

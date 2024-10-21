@@ -48,4 +48,8 @@ public class Recital {
     public float getNeto(){
         return Recaudacion-Costo;
     }
+    
+    public String toString(){
+        return "Fecha:"+Fecha+" Ganancias: $"+getNeto();
+    }
 }

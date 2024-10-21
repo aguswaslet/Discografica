@@ -8,6 +8,10 @@ package Logica;
  *
  * @author agust
  */
-public class Emergente {
-    
+public class Emergente extends Artista{
+    public Emergente(){
+        super();
+        $rep = (float)0.20;
+        $UVendidas = (float)23.15;
+    }
 }

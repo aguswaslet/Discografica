@@ -44,4 +44,8 @@ public class Recital {
     public void setCosto(float Costo) {
         this.Costo = Costo;
     }
+    
+    public float getNeto(){
+        return Recaudacion-Costo;
+    }
 }

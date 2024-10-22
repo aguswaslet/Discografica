@@ -110,7 +110,6 @@ public class Artista {
         }
         for(Disco n: Disc_aux){
             System.out.println(n);
-            n.info();
         }
     }
 }

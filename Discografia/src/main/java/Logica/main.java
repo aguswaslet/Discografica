@@ -10,7 +10,7 @@ package Logica;
  */
 public class main {
     public static void main(String[] args) {
-        Cancion[] songs = new Cancion[2];
+        /*Cancion[] songs = new Cancion[2];
         songs[0] = new Cancion();
         songs[0].setNombre("Nothing else matters");
         songs[0].setDuracion(173);
@@ -21,6 +21,7 @@ public class main {
         songs[1].setDuracion(372);
         songs[1].setReproducciones(42400);
         System.out.println(songs[1]);
-        
+        */
+        LeerXml.leer("C:\\Users\\Usuario PC\\Downloads\\Discografica-main\\Discografica-main\\Discografia\\artista.xml");
     }
 }

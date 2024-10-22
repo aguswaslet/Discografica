@@ -4,17 +4,20 @@
  */
 package Logica;
 
+
 /**
  *
  * @author agust
  */
 public class Cancion {
+    int id_Cancion;
     String Nombre;
     int Reproducciones;
     int Minutos;
     int Segundos;
 
     public Cancion() {
+        id_Cancion=0;
         Nombre = "";
         Reproducciones = 0;
         Minutos = 0;
@@ -54,6 +57,13 @@ public class Cancion {
         this.Segundos = Segundos;
     }
     
+    public void setId(int id) {
+        this.id_Cancion = id;
+    }
+    public int getId() {
+        return id_Cancion;
+    }
+    
     public void setDuracion(int n){
         int min,seg;
         
@@ -67,7 +77,7 @@ public class Cancion {
         return getMinutos()+":"+getSegundos()+"";
     }
     
-    public float Regalias(){
+    public float Liquidacion(){
         return (float)getReproducciones();
     }
     

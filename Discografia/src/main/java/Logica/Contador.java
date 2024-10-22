@@ -4,10 +4,16 @@
  */
 package Logica;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author agust
  */
 public class Contador {
-    
+    public static float CalculaRegalias(ArrayList<Disco> Discos){
+        float Total=0;
+        
+        return Total;
+    }
 }

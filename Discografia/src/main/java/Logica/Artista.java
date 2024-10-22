@@ -89,14 +89,15 @@ public class Artista {
             reproducciones += n.TotalReproducciones();
         }
         
+        Total = (unidades*$UVendidas) + (reproducciones*$rep) ;
+        
+        Rec_aux = getRecitales();
         unidades = 0;
-        reproducciones=0;
-        for(Disco n:Disc_aux){
-            unidades += n.getUnidadesVendidas();
-            reproducciones += n.TotalReproducciones();
+        for(Recital n:Rec_aux){
+            unidades += n.getNeto();
         }
-            
-        Total = (unidades*$UVendidas) + (reproducciones*$rep);
+        
+        Total+= unidades*$GananciasRecital;
         
         return Total;
     }    

@@ -14,7 +14,7 @@ public class Sencillo extends Cancion{
     }
     
     @Override
-    public float Regalias(){
+    public float Liquidacion(){
         return (float)(getReproducciones()*1.5);
     }
     

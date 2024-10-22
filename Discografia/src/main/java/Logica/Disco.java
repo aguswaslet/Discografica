@@ -62,9 +62,21 @@ public class Disco {
         float total = 0;
         aux = getCanciones();
         for(Cancion n:aux){
-            total += n.Regalias();
+            total += n.Liquidacion();
         }
         return total;
+    }
+    
+    public void info(){
+        ArrayList<Cancion> aux = (ArrayList)Canciones.values();
+        
+        for(Cancion n:aux){
+            System.out.println(n);
+        }
+    }
+    
+    public String toString(){
+        return "Nombre: "+Nombre+" / Unidades Vendidas: "+UnidadesVendidas;
     }
     
 }

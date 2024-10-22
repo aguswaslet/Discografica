@@ -56,6 +56,18 @@ public class Discografia {
         }
     }
         
+    public void info(){
+        if(!Artistas.isEmpty()){
+            for(Artista a:Artistas.values()){
+                a.info();
+            }
+        }
+    }
+    
+    public void RegaliasArtista(int n){
+        if(Artistas.containsKey(n)){
+            Contador.CalculaRegalias(getArtista(n).getDiscos());
+        }
     }
     
     

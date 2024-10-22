@@ -122,7 +122,8 @@ public class FormularioArtista extends javax.swing.JPanel {
     }
     
     public int getCantidadIntegrantes(){
-        int numIntegrantes = Integer.parseInt(cantidadIntegrantes.getText());
+        String integrantes = cantidadIntegrantes.getText();
+        int numIntegrantes = Integer.parseInt(integrantes.trim());
         return numIntegrantes;
     }
     

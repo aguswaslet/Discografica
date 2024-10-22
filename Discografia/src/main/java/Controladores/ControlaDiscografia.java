@@ -24,11 +24,11 @@ public class ControlaDiscografia implements ActionListener{
     public void nuevoArtista(){      
         Artista art;
         
-        if(FArt.getCheckConsagrado()){art = new Consagrado();}else{art = new Emergente();}
+        if(FArt.getConsagrado()){art = new Consagrado();}else{art = new Emergente();}
         
-        art.setNombre(FArt.getNombre());
+        art.setNombre(FArt.getNombreArtista());
         art.setGeneroMusical(FArt.getGeneroMusical());
-        art.setIntegrantes(FArt.getCantidadIntgrantes());
+        art.setIntegrantes(FArt.getCantidadIntegrantes());
         
         discografia.addArtista(art);
     }
@@ -43,7 +43,6 @@ public class ControlaDiscografia implements ActionListener{
                 break;
             }
         }
-        FArt.getNombre();
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

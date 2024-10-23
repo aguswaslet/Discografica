@@ -2,16 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Logica;
+package Modelos;
 
 /**
  *
  * @author agust
  */
-public class Emergente extends Artista{
-    public Emergente(){
-        super();
-        $rep = (float)0.20;
-        $UVendidas = (float)23.15;
-    }
+public class GeneradorID {
+    
 }

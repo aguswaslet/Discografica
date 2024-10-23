@@ -16,7 +16,7 @@ public class Discografia {
     String Nombre;
     TreeMap<Integer,Artista> Artistas;
 
-    public Discografia(String Nombre, TreeMap<Integer, Artista> Artistas) {
+    public Discografia(String Nombre, TreeMap<Integer,Artista> Artistas) {
         this.Nombre = Nombre;
         this.Artistas = Artistas;
     }
@@ -31,8 +31,8 @@ public class Discografia {
         this.Nombre = Nombre;
     }
 
-    public ArrayList<Artista> getArtistas() {
-        return (ArrayList)Artistas.values();
+    public TreeMap<Integer,Artista> getArtistas() {
+        return Artistas;
     }
     
     public Artista getArtista(int n){
@@ -55,9 +55,9 @@ public class Discografia {
         }
     }
     
-    public void deleteArtista(Artista obj){
-        if(Artistas.containsKey(obj.getId())){
-            Artistas.remove(obj.getId());
+    public void deleteArtista(int id){
+        if(Artistas.containsKey(id)){
+            Artistas.remove(id);
         }else{
             System.out.println("El Artista no pertenese a la Discografica!");
         }

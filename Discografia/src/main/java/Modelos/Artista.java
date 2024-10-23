@@ -13,7 +13,7 @@ import java.util.TreeMap;
  * @author agust
  */
 public class Artista {
-    int id;
+    int id_artista;
     String Nombre;
     int Integrantes;
     String GeneroMusical;
@@ -23,16 +23,49 @@ public class Artista {
     float $UVendidas=0;
     float $GananciasRecital=0;
 
+    public Artista(int id_artista, String Nombre, int Integrantes, String GeneroMusical, TreeMap<String, Disco> Discos, TreeMap<LocalDate, Recital> Recitales) {
+        this.id_artista = id_artista;
+        this.Nombre = Nombre;
+        this.Integrantes = Integrantes;
+        this.GeneroMusical = GeneroMusical;
+        this.Discos = Discos;
+        this.Recitales = Recitales;
+    }
+    
     public Artista() {
-        
+        id_artista = GeneradorID.generarId();
+    }
+
+    public float get$rep() {
+        return $rep;
+    }
+
+    public void set$rep(float $rep) {
+        this.$rep = $rep;
+    }
+
+    public float get$UVendidas() {
+        return $UVendidas;
+    }
+
+    public void set$UVendidas(float $UVendidas) {
+        this.$UVendidas = $UVendidas;
+    }
+
+    public float get$GananciasRecital() {
+        return $GananciasRecital;
+    }
+
+    public void set$GananciasRecital(float $GananciasRecital) {
+        this.$GananciasRecital = $GananciasRecital;
     }
 
     public int getId() {
-        return id;
+        return id_artista;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_artista = id;
     }
 
     public String getNombre() {

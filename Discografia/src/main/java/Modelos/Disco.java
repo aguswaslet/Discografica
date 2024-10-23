@@ -23,6 +23,12 @@ public class Disco {
         this.UnidadesVendidas = UnidadesVendidas;
         this.Canciones = Canciones;
     }
+
+    public Disco() {
+        id_disco = GeneradorID.generarId();
+    }
+    
+    
     
     public String getNombre() {
         return Nombre;

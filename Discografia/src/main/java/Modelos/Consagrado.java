@@ -11,8 +11,8 @@ package Modelos;
 public class Consagrado extends Artista{
     public Consagrado(){
         super();
-        $rep = (float)1.2;
-        $UVendidas = (float)55.75;
+        set$rep((float)1.2);
+        set$UVendidas((float)55.75);
     }
     
     @Override

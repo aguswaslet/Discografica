@@ -9,13 +9,24 @@ package Modelos;
  * @author agust
  */
 public class Cancion {
+
+    
     int id_cancion;
     String Nombre;
     int Reproducciones;
     int Minutos;
     int Segundos;
 
+    public Cancion(int id_cancion, String Nombre, int Reproducciones, int Minutos, int Segundos) {
+        this.id_cancion = id_cancion;
+        this.Nombre = Nombre;
+        this.Reproducciones = Reproducciones;
+        this.Minutos = Minutos;
+        this.Segundos = Segundos;
+    }
+    
     public Cancion() {
+        id_cancion = 0;
         Nombre = "";
         Reproducciones = 0;
         Minutos = 0;

@@ -11,9 +11,19 @@ import java.time.LocalDate;
  * @author agust
  */
 public class Recital {
+    int id_recital;
     LocalDate Fecha;
     float Recaudacion;
     float Costo;
+
+    public Recital(int id,LocalDate Fecha, float Recaudacion, float Costo) {
+        this.id_recital = id;
+        this.Fecha = Fecha;
+        this.Recaudacion = Recaudacion;
+        this.Costo = Costo;
+    }
+    
+    
     
     public Recital(){
         Fecha = LocalDate.now();

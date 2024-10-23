@@ -15,6 +15,13 @@ public class Discografia {
 
     String Nombre;
     TreeMap<Integer,Artista> Artistas;
+
+    public Discografia(String Nombre, TreeMap<Integer, Artista> Artistas) {
+        this.Nombre = Nombre;
+        this.Artistas = Artistas;
+    }
+    public Discografia() {
+    }
     
     public String getNombre() {
         return Nombre;

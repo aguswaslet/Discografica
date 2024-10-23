@@ -9,6 +9,7 @@ package Modelos;
  * @author agust
  */
 public class Cancion {
+    int id_cancion;
     String Nombre;
     int Reproducciones;
     int Minutos;
@@ -19,6 +20,14 @@ public class Cancion {
         Reproducciones = 0;
         Minutos = 0;
         Segundos = 0;
+    }
+
+    public int getId() {
+        return id_cancion;
+    }
+
+    public void setId(int id_cancion) {
+        this.id_cancion = id_cancion;
     }
     
 

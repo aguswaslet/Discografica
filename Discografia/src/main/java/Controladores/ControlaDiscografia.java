@@ -41,7 +41,7 @@ public class ControlaDiscografia implements ActionListener{
             case "Crear" : {
                 nuevoArtista();
                 break;
-            }
+            } 
             default: {
                 System.out.println("Evento Desconocido!");
                 break;

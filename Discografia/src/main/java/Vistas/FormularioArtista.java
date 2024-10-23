@@ -40,77 +40,35 @@ public class FormularioArtista extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         agregarArtista = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(551, 428));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setText("Nombre:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 52, -1, -1));
 
         nombreArtista.setText("Los Pepitos");
+        add(nombreArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 46, 116, -1));
 
         jLabel2.setText("Cantidad de Integrantes:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 96, 129, 20));
 
         cantidadIntegrantes.setText("3");
+        add(cantidadIntegrantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 92, -1, -1));
 
         consagrado.setText("Consagrado");
+        add(consagrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 195, -1, -1));
 
         jLabel3.setText("Genero Musical:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 138, -1, -1));
 
         generoMusical.setText("Rock Nacional");
+        add(generoMusical, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 138, 116, -1));
 
         jLabel4.setText("Agregar Artista");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 6, -1, -1));
 
         agregarArtista.setText("Agregar");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(consagrado)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nombreArtista)
-                            .addComponent(cantidadIntegrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(generoMusical, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(161, 161, 161))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(agregarArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(160, 160, 160))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(nombreArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cantidadIntegrantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(generoMusical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(consagrado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(agregarArtista)
-                .addGap(34, 34, 34))
-        );
+        add(agregarArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 259, 78, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     public void setActionListener(ActionListener controlador){

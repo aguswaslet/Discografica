@@ -12,10 +12,17 @@ import java.util.TreeMap;
  * @author agust
  */
 public class Disco {
-
+    int id_disco;
     String Nombre;
     int UnidadesVendidas;
-    TreeMap<String,Cancion> Canciones;
+    TreeMap<Integer,Cancion> Canciones;
+    
+    public Disco(int id_disco, String Nombre, int UnidadesVendidas, TreeMap<Integer,Cancion> Canciones) {
+        this.id_disco = id_disco;
+        this.Nombre = Nombre;
+        this.UnidadesVendidas = UnidadesVendidas;
+        this.Canciones = Canciones;
+    }
     
     public String getNombre() {
         return Nombre;
@@ -37,23 +44,23 @@ public class Disco {
         return (ArrayList)Canciones.values();
     }
 
-    public void setCanciones(TreeMap<String, Cancion> Canciones) {
+    public void setCanciones(TreeMap<Integer, Cancion> Canciones) {
         this.Canciones = Canciones;
     }
     
     public void addCancion(Cancion obj){
         if(!Canciones.containsKey(obj.getNombre())){ 
-            Canciones.put(obj.getNombre(), obj);
+            Canciones.put(obj.getId(), obj);
         }else{
             System.out.println("("+obj.getNombre()+") ya se encuentra en el disco!");
         }
     }
     
-    public void deleteCacnion(String n){
-        if(Canciones.containsKey(n)){
-            Canciones.remove(n);
+    public void deleteCacnion(int id){
+        if(Canciones.containsKey(id)){
+            Canciones.remove(id);
         }else{
-            System.out.println("Cancion Inexistente! ("+n+")");
+            System.out.println("Cancion Inexistente! ("+id+")");
         }
     }    
     

@@ -38,11 +38,14 @@ public class ControlaDiscografia implements ActionListener{
         String comando = e.getActionCommand();
         
         switch(comando){
-            case "Crear":{
+            case "Crear" : {
                 nuevoArtista();
                 break;
             }
+            default: {
+                System.out.println("Evento Desconocido!");
+                break;
+            }
         }
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

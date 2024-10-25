@@ -4,12 +4,13 @@
  */
 package Vistas;
 
+import Modelos.Discografia;
+
 /**
  *
  * @author agust
  */
 public class MainFrame extends javax.swing.JFrame {
-
     /**
      * Creates new form MainFrame
      */

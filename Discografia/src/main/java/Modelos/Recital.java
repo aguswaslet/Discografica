@@ -11,10 +11,10 @@ import java.time.LocalDate;
  * @author agust
  */
 public class Recital {
-    int id_recital;
-    LocalDate Fecha;
-    float Recaudacion;
-    float Costo;
+    private int id_recital;
+    private LocalDate Fecha;
+    private float Recaudacion;
+    private float Costo;
 
     public Recital(int id,LocalDate Fecha, float Recaudacion, float Costo) {
         this.id_recital = id;
@@ -23,10 +23,8 @@ public class Recital {
         this.Costo = Costo;
     }
     
-    
-    
     public Recital(){
-        id_recital = GeneradorID.generarId();
+        id_recital = GeneradorIDRecital.generarId();
         Fecha = LocalDate.now();
         Recaudacion = 0;
         Costo = 0;

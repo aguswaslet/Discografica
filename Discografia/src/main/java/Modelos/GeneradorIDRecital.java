@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Modelos;
 
@@ -15,11 +16,11 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author agust
+ * @author Alumno
  */
-public class GeneradorID implements Serializable{
+public class GeneradorIDRecital implements Serializable{
     private static int ultimoId = 0;
-    private static final String fileName = "GeneradorId.ser";
+    private static final String fileName = "C:\\Users\\Alumno\\Desktop\\Discografica\\Discografia\\Data\\Serialisados\\GeneradorIDRecital.ser";
 
     // Método para generar un nuevo ID
     public static int generarId() {
@@ -27,6 +28,11 @@ public class GeneradorID implements Serializable{
         int id = ultimoId++;
         guardarEstado();
         return id;
+    }
+    
+    public static void Actualiza(int id){
+        ultimoId = id;
+        guardarEstado();
     }
     
     public static void guardarEstado() {

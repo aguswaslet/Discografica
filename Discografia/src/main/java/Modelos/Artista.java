@@ -4,7 +4,6 @@
  */
 package Modelos;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
@@ -13,17 +12,17 @@ import java.util.TreeMap;
  * @author agust
  */
 public class Artista {
-    int id_artista;
+    String id_artista;
     String Nombre;
     int Integrantes;
     String GeneroMusical;
-    TreeMap<String,Disco> Discos;
-    TreeMap<LocalDate,Recital> Recitales;
+    TreeMap<Integer,Disco> Discos;
+    TreeMap<Integer,Recital> Recitales;
     float $rep=0;
     float $UVendidas=0;
     float $GananciasRecital=0;
 
-    public Artista(int id_artista, String Nombre, int Integrantes, String GeneroMusical, TreeMap<String, Disco> Discos, TreeMap<LocalDate, Recital> Recitales) {
+    public Artista(String id_artista, String Nombre, int Integrantes, String GeneroMusical, TreeMap<Integer, Disco> Discos, TreeMap<Integer, Recital> Recitales) {
         this.id_artista = id_artista;
         this.Nombre = Nombre;
         this.Integrantes = Integrantes;
@@ -33,7 +32,7 @@ public class Artista {
     }
     
     public Artista() {
-        id_artista = GeneradorID.generarId();
+        id_artista = GeneradorIDArtista.generarId();
     }
 
     public float get$rep() {
@@ -60,11 +59,11 @@ public class Artista {
         this.$GananciasRecital = $GananciasRecital;
     }
 
-    public int getId() {
+    public String getId() {
         return id_artista;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id_artista = id;
     }
 
@@ -92,19 +91,19 @@ public class Artista {
         this.GeneroMusical = GeneroMusical;
     }
 
-    public ArrayList<Disco> getDiscos() {
-        return (ArrayList)Discos.values();
+    public TreeMap<Integer,Disco> getDiscos() {
+        return Discos;
     }
 
-    public void setDiscos(TreeMap<String, Disco> Discos) {
+    public void setDiscos(TreeMap<Integer, Disco> Discos) {
         this.Discos = Discos;
     }
 
-    public ArrayList<Recital> getRecitales() {
-        return (ArrayList)Recitales.values();
+    public TreeMap<Integer,Recital> getRecitales() {
+        return Recitales;
     }
 
-    public void setRecitales(TreeMap<LocalDate, Recital> Recitales) {
+    public void setRecitales(TreeMap<Integer, Recital> Recitales) {
         this.Recitales = Recitales;
     }
     
@@ -113,7 +112,7 @@ public class Artista {
         ArrayList<Recital> Rec_aux;
         float Total=0,unidades,reproducciones;
         
-        Disc_aux = getDiscos();
+        Disc_aux = (ArrayList)getDiscos().values();
         
         unidades = 0;
         reproducciones=0;
@@ -122,14 +121,15 @@ public class Artista {
             reproducciones += n.TotalReproducciones();
         }
         
-        unidades = 0;
+        Total = (unidades*$UVendidas) + (reproducciones*$rep);
+        
+        Rec_aux = (ArrayList)getRecitales().values();
         reproducciones=0;
-        for(Disco n:Disc_aux){
-            unidades += n.getUnidadesVendidas();
-            reproducciones += n.TotalReproducciones();
+        for(Recital n:Rec_aux){
+            unidades += n.getNeto();
         }
             
-        Total = (unidades*$UVendidas) + (reproducciones*$rep);
+        Total += (float)(unidades*$GananciasRecital);
         
         return Total;
     }    

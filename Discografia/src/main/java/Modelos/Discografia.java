@@ -13,10 +13,10 @@ import java.util.TreeMap;
  */
 public class Discografia {
 
-    String Nombre;
-    TreeMap<Integer,Artista> Artistas;
+    private String Nombre;
+    private TreeMap<String,Artista> Artistas;
 
-    public Discografia(String Nombre, TreeMap<Integer,Artista> Artistas) {
+    public Discografia(String Nombre, TreeMap<String,Artista> Artistas) {
         this.Nombre = Nombre;
         this.Artistas = Artistas;
     }
@@ -31,7 +31,7 @@ public class Discografia {
         this.Nombre = Nombre;
     }
 
-    public TreeMap<Integer,Artista> getArtistas() {
+    public TreeMap<String,Artista> getArtistas() {
         return Artistas;
     }
     
@@ -43,7 +43,7 @@ public class Discografia {
         }
     }
 
-    public void setArtistas(TreeMap<Integer,Artista> Artistas) {
+    public void setArtistas(TreeMap<String,Artista> Artistas) {
         this.Artistas = Artistas;
     }
     

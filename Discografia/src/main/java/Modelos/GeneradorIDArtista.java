@@ -17,16 +17,42 @@ import javax.swing.JOptionPane;
  *
  * @author agust
  */
-public class GeneradorID implements Serializable{
-    private static int ultimoId = 0;
-    private static final String fileName = "GeneradorId.ser";
+public class GeneradorIDArtista implements Serializable{
+    private static String ultimoId = "AAAAAA";
+    private static final String fileName = "C:\\Users\\Alumno\\Desktop\\Discografica\\Discografia\\Data\\Serialisados\\GeneradorIDArtista.ser";
 
     // Método para generar un nuevo ID
-    public static int generarId() {
+    public static String generarId() {
         cargarEstado();
-        int id = ultimoId++;
+        String id = ultimoId;
+        nuevoId();
         guardarEstado();
         return id;
+    }
+    
+    public static void nuevoId(){ // Desde AAAAAA hasta ZZZZZZ
+        char[] chars = ultimoId.toCharArray();
+        int i;
+        
+        i = ultimoId.length() - 1;
+        
+        if(chars[0]!='Z'){// si no se acabaron las convinaciones, entramos a buscar una nueva
+            while(i >= 0){
+                if (chars[i] < 'Z') {
+                    chars[i]++;  
+                    i = 0;
+                }else{
+                    chars[i] = 'A';
+                    i--;
+                } 
+            }
+        }
+        ultimoId = String.valueOf(chars);// Convertimos el char[] a String y retornamos
+    }
+    
+    public static void Actualiza(String id){
+        ultimoId = id;
+        guardarEstado();
     }
     
     public static void guardarEstado() {
@@ -49,7 +75,7 @@ public class GeneradorID implements Serializable{
     
     public static void cargarEstado() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
-            ultimoId = (int) ois.readObject();
+            ultimoId = (String) ois.readObject();
             System.out.println("Estado cargado exitosamente.");
         } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, e.toString());

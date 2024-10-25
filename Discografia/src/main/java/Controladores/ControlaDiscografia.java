@@ -14,15 +14,23 @@ import java.awt.event.ActionListener;
  * @author Usuario PC
  */
 public class ControlaDiscografia implements ActionListener{
-    Discografia discografia = new Discografia();
-    FormularioArtista FArt = new FormularioArtista();
+    Discografia discografia;
+    
     
     public ControlaDiscografia(){
-        FArt.setActionListener(this);
+        discografia = new Discografia();
+    }
+    
+    public void CargaDiscografia(){
+        //discografia.setArtistas(ControladorXML.leer());
     }
     
     public void nuevoArtista(){      
         Artista art;
+        FormularioArtista FArt = new FormularioArtista();
+        FArt.setActionListener(this);
+        
+        FArt.setVisible(true);
         
         if(FArt.getConsagrado()){art = new Consagrado();}else{art = new Emergente();}
         
@@ -32,6 +40,8 @@ public class ControlaDiscografia implements ActionListener{
         
         discografia.addArtista(art);
     }
+    
+   
 
     @Override
     public void actionPerformed(ActionEvent e) {

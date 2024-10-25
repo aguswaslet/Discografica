@@ -9,13 +9,11 @@ package Modelos;
  * @author agust
  */
 public class Cancion {
-
-    
-    int id_cancion;
-    String Nombre;
-    int Reproducciones;
-    int Minutos;
-    int Segundos;
+    private int id_cancion;
+    private String Nombre;
+    private int Reproducciones;
+    private int Minutos;
+    private int Segundos;
 
     public Cancion(int id_cancion, String Nombre, int Reproducciones, int Minutos, int Segundos) {
         this.id_cancion = id_cancion;
@@ -26,7 +24,7 @@ public class Cancion {
     }
     
     public Cancion() {
-        id_cancion = 0;
+        id_cancion = GeneradorIDCancion.generarId();
         Nombre = "";
         Reproducciones = 0;
         Minutos = 0;

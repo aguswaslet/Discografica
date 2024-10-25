@@ -12,10 +12,10 @@ import java.util.TreeMap;
  * @author agust
  */
 public class Disco {
-    int id_disco;
-    String Nombre;
-    int UnidadesVendidas;
-    TreeMap<Integer,Cancion> Canciones;
+    private int id_disco;
+    private String Nombre;
+    private int UnidadesVendidas;
+    private TreeMap<Integer,Cancion> Canciones;
     
     public Disco(int id_disco, String Nombre, int UnidadesVendidas, TreeMap<Integer,Cancion> Canciones) {
         this.id_disco = id_disco;
@@ -25,7 +25,7 @@ public class Disco {
     }
 
     public Disco() {
-        id_disco = GeneradorID.generarId();
+        id_disco = GeneradorIDDisco.generarId();
     }
     
     
@@ -46,8 +46,8 @@ public class Disco {
         this.UnidadesVendidas = UnidadesVendidas;
     }
 
-    public ArrayList<Cancion> getCanciones() {
-        return (ArrayList)Canciones.values();
+    public TreeMap<Integer,Cancion> getCanciones() {
+        return Canciones;
     }
 
     public void setCanciones(TreeMap<Integer, Cancion> Canciones) {
@@ -73,7 +73,7 @@ public class Disco {
     public float TotalReproducciones(){
         ArrayList<Cancion> aux;
         float total = 0;
-        aux = getCanciones();
+        aux = (ArrayList)getCanciones().values();
         for(Cancion n:aux){
             total += n.Regalias();
         }
@@ -81,7 +81,9 @@ public class Disco {
     }
     
     public void info(){
-        for(Cancion n: Canciones.values()){
+        ArrayList<Cancion> aux;
+        aux = (ArrayList)Canciones.values();
+        for(Cancion n: aux){
             System.out.println(n);
         }
     }

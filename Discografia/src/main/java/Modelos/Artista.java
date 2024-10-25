@@ -17,13 +17,13 @@ public class Artista {
     String Nombre;
     int Integrantes;
     String GeneroMusical;
-    TreeMap<String,Disco> Discos;
-    TreeMap<LocalDate,Recital> Recitales;
+    TreeMap<Integer,Disco> Discos;
+    TreeMap<Integer,Recital> Recitales;
     float $rep=0;
     float $UVendidas=0;
     float $GananciasRecital=0;
 
-    public Artista(int id_artista, String Nombre, int Integrantes, String GeneroMusical, TreeMap<String, Disco> Discos, TreeMap<LocalDate, Recital> Recitales) {
+    public Artista(int id_artista, String Nombre, int Integrantes, String GeneroMusical, TreeMap<Integer, Disco> Discos, TreeMap<Integer, Recital> Recitales) {
         this.id_artista = id_artista;
         this.Nombre = Nombre;
         this.Integrantes = Integrantes;
@@ -33,7 +33,11 @@ public class Artista {
     }
     
     public Artista() {
-        id_artista = GeneradorID.generarId();
+        //id_artista = GeneradorID.generarId();
+    }
+
+    public Artista(int id_artista) {
+        this.id_artista = id_artista;
     }
 
     public float get$rep() {
@@ -92,24 +96,24 @@ public class Artista {
         this.GeneroMusical = GeneroMusical;
     }
 
-    public ArrayList<Disco> getDiscos() {
-        return (ArrayList)Discos.values();
+    public TreeMap<Integer, Disco> getDiscos() {
+        return Discos;
     }
 
-    public void setDiscos(TreeMap<String, Disco> Discos) {
+    public void setDiscos(TreeMap<Integer, Disco> Discos) {
         this.Discos = Discos;
     }
 
-    public ArrayList<Recital> getRecitales() {
-        return (ArrayList)Recitales.values();
+    public TreeMap<Integer,Recital> getRecitales() {
+        return Recitales;
     }
 
-    public void setRecitales(TreeMap<LocalDate, Recital> Recitales) {
+    public void setRecitales(TreeMap<Integer, Recital> Recitales) {
         this.Recitales = Recitales;
     }
     
     public float regalias(){
-        ArrayList<Disco> Disc_aux;
+        TreeMap<Integer,Disco> Disc_aux;
         ArrayList<Recital> Rec_aux;
         float Total=0,unidades,reproducciones;
         
@@ -117,14 +121,14 @@ public class Artista {
         
         unidades = 0;
         reproducciones=0;
-        for(Disco n:Disc_aux){
+        for(Disco n:Disc_aux.values()){
             unidades += n.getUnidadesVendidas();
             reproducciones += n.TotalReproducciones();
         }
         
         unidades = 0;
         reproducciones=0;
-        for(Disco n:Disc_aux){
+        for(Disco n:Disc_aux.values()){
             unidades += n.getUnidadesVendidas();
             reproducciones += n.TotalReproducciones();
         }

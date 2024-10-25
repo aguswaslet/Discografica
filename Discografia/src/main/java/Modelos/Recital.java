@@ -26,12 +26,21 @@ public class Recital {
     
     
     public Recital(){
-        id_recital = GeneradorID.generarId();
+        //id_recital = GeneradorID.generarId();
         Fecha = LocalDate.now();
         Recaudacion = 0;
         Costo = 0;
     }
 
+    public int getId_recital() {
+        return id_recital;
+    }
+
+    public void setId_recital(int id_recital) {
+        this.id_recital = id_recital;
+    }
+
+    
     public LocalDate getFecha() {
         return Fecha;
     }

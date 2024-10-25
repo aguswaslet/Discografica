@@ -22,7 +22,9 @@ public class Artista {
     float $UVendidas=0;
     float $GananciasRecital=0;
 
-    public Artista(String id_artista, String Nombre, int Integrantes, String GeneroMusical, TreeMap<Integer, Disco> Discos, TreeMap<Integer, Recital> Recitales) {
+
+    public Artista(String id_artista, String Nombre, int Integrantes, String GeneroMusical, TreeMap<Integer, Disco> Discos, TreeMap<Integer, Recital> Recitales)
+        {
         this.id_artista = id_artista;
         this.Nombre = Nombre;
         this.Integrantes = Integrantes;
@@ -32,7 +34,14 @@ public class Artista {
     }
     
     public Artista() {
+
         id_artista = GeneradorIDArtista.generarId();
+
+        //id_artista = GeneradorID.generarId();
+    }
+
+    public Artista(String id_artista) {
+        this.id_artista = id_artista;
     }
 
     public float get$rep() {
@@ -91,7 +100,8 @@ public class Artista {
         this.GeneroMusical = GeneroMusical;
     }
 
-    public TreeMap<Integer,Disco> getDiscos() {
+
+    public TreeMap<Integer, Disco> getDiscos() {
         return Discos;
     }
 
@@ -125,6 +135,7 @@ public class Artista {
         
         Rec_aux = (ArrayList)getRecitales().values();
         reproducciones=0;
+
         for(Recital n:Rec_aux){
             unidades += n.getNeto();
         }

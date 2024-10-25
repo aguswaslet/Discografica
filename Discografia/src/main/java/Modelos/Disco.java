@@ -25,7 +25,18 @@ public class Disco {
     }
 
     public Disco() {
+
         id_disco = GeneradorIDDisco.generarId();
+
+    }
+
+    public int getId_disco() {
+        return id_disco;
+    }
+
+    public void setId_disco(int id_disco) {
+        this.id_disco = id_disco;
+
     }
     
     
@@ -45,6 +56,7 @@ public class Disco {
     public void setUnidadesVendidas(int UnidadesVendidas) {
         this.UnidadesVendidas = UnidadesVendidas;
     }
+
 
     public TreeMap<Integer,Cancion> getCanciones() {
         return Canciones;
@@ -73,6 +85,7 @@ public class Disco {
     public float TotalReproducciones(){
         ArrayList<Cancion> aux;
         float total = 0;
+
         aux = (ArrayList)getCanciones().values();
         for(Cancion n:aux){
             total += n.Regalias();

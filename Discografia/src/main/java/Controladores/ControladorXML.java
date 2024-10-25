@@ -1,6 +1,7 @@
-
 package Controladores;
+
 import Modelos.*;
+import Vistas.Reporte;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -13,11 +14,13 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.TreeMap;
 
 public class ControladorXML {
-    static String ruta= "data/artista.xml";
+
+    static String ruta = "Data/XML/artistaerr.xml";
 
     public static String getRuta() {
         return ruta;
@@ -26,10 +29,10 @@ public class ControladorXML {
     public static void setRuta(String ruta) {
         ControladorXML.ruta = ruta;
     }
-    
-    
-    
+
     public static TreeMap<String, Artista> leer() {
+        ArrayList<String> reporte = new ArrayList<>();
+
         try {
             File archivo = new File(ruta);
 
@@ -41,8 +44,7 @@ public class ControladorXML {
             // Lista para almacenar todos los artistas
             TreeMap<String, Artista> artistas = new TreeMap<>();
 
-            NodeList listaArtistas = nodoRaiz.getElementsByTagName("artista");
-
+            NodeList listaArtistas = nodoRaiz.getChildNodes();
             // Iterar sobre cada artista
             for (int i = 0; i < listaArtistas.getLength(); i++) {
                 Node nodoArtista = listaArtistas.item(i);
@@ -50,12 +52,36 @@ public class ControladorXML {
                     Element elementoArtista = (Element) nodoArtista;
 
                     // Crear un objeto Artista
-                    Artista artista = new Artista(String.valueOf(elementoArtista.getAttribute("id")));
-                    //GeneradorID.actualizaID();
-                    artista.setNombre(getTextValue(elementoArtista, "Nombre"));
-                    artista.setIntegrantes(Integer.parseInt(getTextValue(elementoArtista, "Integrantes")));
-                    artista.setGeneroMusical(getTextValue(elementoArtista, "GeneroMusical"));
+                    Artista artista;
+                    String tipoArtista = elementoArtista.getNodeName();
 
+                    // Crear objeto Artista dependiendo del tipo
+                    if (tipoArtista.equals("emergente")) {
+                        artista = new Emergente(elementoArtista.getAttribute("id"));
+                    } else if (tipoArtista.equals("consagrado")) {
+                        artista = new Consagrado(elementoArtista.getAttribute("id"));
+                    } else {
+                        reporte.add("Un artista no esta especificado como emergente o consagrado"); // Si no es un tipo válido, saltar
+                        artista = new Artista();
+                    }
+
+                    try {
+                        artista.setNombre(getTextValue(elementoArtista, "Nombre"));
+                    } catch (NullPointerException ex) {
+                        reporte.add("Error: falta el campo 'Nombre' del id " + artista.getId() + "\n" + ex.getMessage());
+                    }
+                    try {
+                        artista.setIntegrantes(Integer.parseInt(getTextValue(elementoArtista, "Integrantes")));
+                    } catch (NumberFormatException ex) {
+                        reporte.add("Error: se colocaron caracteres en un campo que solo se admiten numeros (Integrantes de " + artista.getNombre() + ")\n" + ex.getMessage());
+                    } catch (NullPointerException ex) {
+                        reporte.add("Error: falta el campo 'Integrantes' del artista " + artista.getNombre() + "\n" + ex.getMessage());
+                    }
+                    try {
+                        artista.setGeneroMusical(getTextValue(elementoArtista, "GeneroMusical"));
+                    } catch (NullPointerException ex) {
+                        reporte.add("Error: falta el campo 'GeneroMusical' del artista " + artista.getNombre() + "\n" + ex.getMessage());
+                    }
                     // Leer los discos del artista 
                     NodeList listaDiscos = elementoArtista.getElementsByTagName("Disco");
                     TreeMap<Integer, Disco> discos = new TreeMap<>();
@@ -64,26 +90,54 @@ public class ControladorXML {
 
                         Disco disco = new Disco();
                         disco.setId_disco(Integer.parseInt(elementoDisco.getAttribute("id")));
-                        disco.setNombre(getTextValue(elementoDisco, "Nombre"));
-                        disco.setUnidadesVendidas(Integer.parseInt(getTextValue(elementoDisco, "UnidadesVendidas")));
-
+                        try {
+                            disco.setNombre(getTextValue(elementoDisco, "Nombre"));
+                        } catch (NullPointerException ex) {
+                            reporte.add("Error: falta el campo 'Nombre de Disco' del artista " + artista.getNombre() + "\n" + ex.getMessage());
+                        }
+                        try {
+                            disco.setUnidadesVendidas(Integer.parseInt(getTextValue(elementoDisco, "UnidadesVendidas")));
+                        } catch (NumberFormatException ex) {
+                            reporte.add("Error: se colocaron caracteres en un campo que solo se admiten numeros (Unidades Vendidas de " + disco.getNombre() + " de " + artista.getNombre() + ")\n" + ex.getMessage());
+                        } catch (NullPointerException ex) {
+                            reporte.add("Error: falta el campo 'Unidades Vendidas' del disco " + disco.getNombre() + " del artista " + artista.getNombre() + "\n" + ex.getMessage());
+                        }
                         // Leer las canciones del disco 
                         NodeList listaCanciones = elementoDisco.getElementsByTagName("Cancion");
                         TreeMap<Integer, Cancion> canciones = new TreeMap<>();
                         for (int k = 0; k < listaCanciones.getLength(); k++) {
                             Element elementoCancion = (Element) listaCanciones.item(k);
 
-                            Cancion cancion = new Cancion();
+                            Cancion cancion = leerCancion(elementoCancion);
+                        // Distinguir entre Sencillo y Cancion
+                        
                             cancion.setId(Integer.parseInt(elementoCancion.getAttribute("id")));
-                            cancion.setNombre(getTextValue(elementoCancion, "Nombre"));
+                            try {
+                                cancion.setNombre(getTextValue(elementoCancion, "Nombre"));
+                            } catch (NullPointerException ex) {
+                                reporte.add("Error: falta el campo 'Nombre de cancion' del disco " + disco.getNombre() + " del artista " + artista.getNombre() + "\n" + ex.getMessage());
+                            }
                             try {
                                 cancion.setMinutos(Integer.parseInt(getTextValue(elementoCancion, "Minutos")));
-                            } catch(NumberFormatException ex){
-            JOptionPane.showMessageDialog(null, "Error: se colocaron caracteres en un campo que solo se admiten numeros\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-                            cancion.setSegundos(Integer.parseInt(getTextValue(elementoCancion, "Segundos")));
-                            cancion.setReproducciones(Integer.parseInt(getTextValue(elementoCancion, "Reproducciones")));
-
+                            } catch (NumberFormatException ex) {
+                                reporte.add("Error: se colocaron caracteres en un campo que solo se admiten numeros (Minutos en " + cancion.getNombre() + " de disco " + disco.getNombre() + " de artista " + artista.getNombre() + ")\n" + ex.getMessage());
+                            } catch (NullPointerException ex) {
+                                reporte.add("Error: falta el campo 'Minutos' del disco " + disco.getNombre() + " del artista " + artista.getNombre() + "\n" + ex.getMessage());
+                            }
+                            try {
+                                cancion.setSegundos(Integer.parseInt(getTextValue(elementoCancion, "Segundos")));
+                            } catch (NumberFormatException ex) {
+                                reporte.add("Error: se colocaron caracteres en un campo que solo se admiten numeros (Segundos en " + cancion.getNombre() + " de disco " + disco.getNombre() + " de artista " + artista.getNombre() + ")\n" + ex.getMessage());
+                            } catch (NullPointerException ex) {
+                                reporte.add("Error: falta el campo 'Segundos' del disco " + disco.getNombre() + " del artista " + artista.getNombre() + "\n" + ex.getMessage());
+                            }
+                            try {
+                                cancion.setReproducciones(Integer.parseInt(getTextValue(elementoCancion, "Reproducciones")));
+                            } catch (NumberFormatException ex) {
+                                reporte.add("Error: se colocaron caracteres en un campo que solo se admiten numeros (Reproducciones en " + cancion.getNombre() + " de disco " + disco.getNombre() + " de artista " + artista.getNombre() + ")\n" + ex.getMessage());
+                            } catch (NullPointerException ex) {
+                                reporte.add("Error: falta el campo 'Reproducciones' del disco " + disco.getNombre() + " del artista " + artista.getNombre() + "\n" + ex.getMessage());
+                            }
                             canciones.put(cancion.getId(), cancion); // Agregar canción al TreeMap de canciones
                         }
 
@@ -101,9 +155,27 @@ public class ControladorXML {
 
                         Recital recital = new Recital();
                         recital.setId_recital(Integer.parseInt(elementoRecital.getAttribute("id")));
-                        recital.setFecha(LocalDate.parse(getTextValue(elementoRecital, "Fecha")));
-                        recital.setRecaudacion(Integer.parseInt(getTextValue(elementoRecital, "Recaudacion")));
-                        recital.setCosto(Integer.parseInt(getTextValue(elementoRecital, "Costos")));
+                        try {
+                            recital.setFecha(LocalDate.parse(getTextValue(elementoRecital, "Fecha")));
+                        } catch (DateTimeParseException ex) {
+                            reporte.add("Error: una fecha no cumple el formato aaaa-mm-dd (Recital de " + artista.getNombre() + ")\n" + ex.getMessage());
+                        } catch (NullPointerException ex) {
+                            reporte.add("Error: falta el campo 'Fecha' del recital del artista " + artista.getNombre() + "\n" + ex.getMessage());
+                        }
+                        try {
+                            recital.setRecaudacion(Integer.parseInt(getTextValue(elementoRecital, "Recaudacion")));
+                        } catch (NumberFormatException ex) {
+                            reporte.add("Error: se colocaron caracteres en un campo que solo se admiten numeros (Recaudacion en recital de artista " + artista.getNombre() + ")\n" + ex.getMessage());
+                        } catch (NullPointerException ex) {
+                            reporte.add("Error: falta el campo 'Recaudacion' del recital con fecha: " + recital.getFecha() + " del artista " + artista.getNombre() + "\n" + ex.getMessage());
+                        }
+                        try {
+                            recital.setCosto(Integer.parseInt(getTextValue(elementoRecital, "Costos")));
+                        } catch (NumberFormatException ex) {
+                            reporte.add("Error: se colocaron caracteres en un campo que solo se admiten numeros (Costos en recital de artista " + artista.getNombre() + ")\n" + ex.getMessage());
+                        } catch (NullPointerException ex) {
+                            reporte.add("Error: falta el campo 'Costos' del recital con fecha: " + recital.getFecha() + " del artista " + artista.getNombre() + "\n" + ex.getMessage());
+                        }
 
                         recitales.put(recital.getId_recital(), recital); // Agregar recital al TreeMap de recitales
                     }
@@ -112,7 +184,14 @@ public class ControladorXML {
 
                     // Agregar el artista al TreeMap de artistas
                     artistas.put(artista.getId(), artista);
+
                 }
+            }
+            if (!reporte.isEmpty()) {
+                Reporte ventrep = new Reporte();
+                ventrep.cargarReporte(reporte);
+                ventrep.setVisible(true);
+                return new TreeMap<String, Artista>();
             }
 
             // Lectura de artistas
@@ -138,20 +217,16 @@ public class ControladorXML {
                 
             }*/
             return artistas;
-        } catch (SAXException ex) { //Archivo que no es XML
-            JOptionPane.showMessageDialog(null, "Error en la sintaxis del XML, errores de formato, o problemas durante la lectura del archivo\n" + ex.getMessage(),  "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (IOException ex){
-            JOptionPane.showMessageDialog(null, "Error: Archivo no encontrado o faltan permisos para acceder al archivo\n"+ ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (ParserConfigurationException ex){
-            JOptionPane.showMessageDialog(null, "Error: caracteristica de DocumenteBuilderFactory no valida\n"+ ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } catch(DateTimeParseException ex){
-            JOptionPane.showMessageDialog(null, "Error: una fecha no cumple el formato aaaa-mm-dd\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } catch(NumberFormatException ex){
-            JOptionPane.showMessageDialog(null, "Error: se colocaron caracteres en un campo que solo se admiten numeros\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } catch(NullPointerException ex){
-            JOptionPane.showMessageDialog(null, "Error: falta un campo\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (SAXException ex) {
+            JOptionPane.showMessageDialog(null, "Error en la sintaxis del XML, errores de formato, o problemas durante la lectura del archivo\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return new TreeMap<String, Artista>();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error: Archivo no encontrado o faltan permisos para acceder al archivo\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return new TreeMap<String, Artista>();
+        } catch (ParserConfigurationException ex) {
+            JOptionPane.showMessageDialog(null, "Error: caracteristica de DocumenteBuilderFactory no valida\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return new TreeMap<String, Artista>();
         }
-        return null;
     }
 
     // Método para obtener el valor de texto de un nodo
@@ -160,6 +235,20 @@ public class ControladorXML {
         if (nodeList.getLength() > 0) {
             return nodeList.item(0).getTextContent();
         }
-        return null;
+        throw new NullPointerException("Falta el campo '" + tagName + "'");
     }
+
+    private static Cancion leerCancion(Element elementoCancion) {
+    Cancion cancion;
+    if (elementoCancion.getNodeName().equals("Sencillo")) {
+        cancion = new Sencillo();
+    } else {
+        cancion = new Cancion();
+    }
+    
+    // Agregar el manejo de excepciones aquí
+
+    return cancion;
 }
+}
+

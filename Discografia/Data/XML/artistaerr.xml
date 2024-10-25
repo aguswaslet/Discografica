@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <artistas>
-	<artista id="1">
+	<emergente id="AAAAAA">
     		<Nombre>Banda Ejemplo</Nombre>
-    		<Integrantes>4</Integrantes>
+    		<Integrantes>5</Integrantes>
     		<GeneroMusical>Rock</GeneroMusical>
    		<Discos>
         		<Disco id="1">
@@ -17,7 +17,7 @@
                 			</Cancion>
                 			<Cancion id="2">
                     				<Nombre>Cancion 2</Nombre>
-                    				<Minutos>la</Minutos>
+                    				<Minutos>3</Minutos>
 						<Segundos>40</Segundos>
                     				<Reproducciones>3000</Reproducciones>
                 			</Cancion>
@@ -26,10 +26,42 @@
     		</Discos>
     		<Recitales>
         		<Recital id="1">
-            			<Fecha>2010-20</Fecha>
+            			<Fecha>2014-10-20</Fecha>
             			<Recaudacion>20000</Recaudacion>
             			<Costos>5000</Costos>
         		</Recital>
     		</Recitales>
-	</artista>
+	</emergente>
+	<consagrado id="AAAAAB">
+    		<Nombre>Banda Ejemplo</Nombre>
+    		<Integrantes>5</Integrantes>
+    		<GeneroMusical>Rock</GeneroMusical>
+   		<Discos>
+        		<Disco id="1">
+            			<Nombre>Disco 1</Nombre>
+            			<UnidadesVendidas>1000</UnidadesVendidas>
+            			<Canciones>
+                			<Sencillo id="1">
+                    				<Nombre>Cancion 1</Nombre>
+                    				<Minutos>3</Minutos>
+						<Segundos>40</Segundos>
+                    				<Reproducciones>5000</Reproducciones>
+                			</Sencillo>
+                			<Cancion id="2">
+                    				<Nombre>Cancion 2</Nombre>
+                    				<Minutos>3</Minutos>
+						<Segundos>40</Segundos>
+                    				<Reproducciones>3000</Reproducciones>
+                			</Cancion>
+            			</Canciones>
+        		</Disco>
+    		</Discos>
+    		<Recitales>
+        		<Recital id="1">
+            			<Fecha>2014-10-20</Fecha>
+            			<Recaudacion>20000</Recaudacion>
+            			<Costos>5000</Costos>
+        		</Recital>
+    		</Recitales>
+	</consagrado>
 </artistas>

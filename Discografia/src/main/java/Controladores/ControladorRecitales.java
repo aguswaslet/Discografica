@@ -8,6 +8,6 @@ package Controladores;
  *
  * @author agust
  */
-public class controladorRecitales {
+public class ControladorRecitales {
     
 }

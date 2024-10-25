@@ -14,6 +14,9 @@ public class Consagrado extends Artista{
         set$rep((float)1.2);
         set$UVendidas((float)55.75);
     }
+    public Consagrado(String id_artista) {
+        super(id_artista);
+    }
     
     @Override
     public String toString(){

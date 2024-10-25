@@ -42,6 +42,7 @@ public class Artista {
 
     public Artista(String id_artista) {
         this.id_artista = id_artista;
+        GeneradorIDArtista.generarId();
     }
 
     public float get$rep() {

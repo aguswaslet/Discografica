@@ -24,11 +24,7 @@ public class Recital {
     }
     
     public Recital(){
-<<<<<<< HEAD
         id_recital = GeneradorIDRecital.generarId();
-=======
-        //id_recital = GeneradorID.generarId();
->>>>>>> e47354a7eaca0bccde6ed5351ce4b492bf22b839
         Fecha = LocalDate.now();
         Recaudacion = 0;
         Costo = 0;

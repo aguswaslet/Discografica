@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 import java.util.TreeMap;
 
 public class ControladorXML {
-    static String ruta= "data/artista.xml";
+    static String ruta= "Data/XML/artista.xml";
 
     public static String getRuta() {
         return ruta;

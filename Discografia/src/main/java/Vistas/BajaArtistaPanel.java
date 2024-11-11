@@ -73,7 +73,7 @@ public class BajaArtistaPanel extends javax.swing.JFrame {
     private void aceptarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarBTNActionPerformed
         String id = getID();
         if(!id.isEmpty()){
-           
+
         }
     }//GEN-LAST:event_aceptarBTNActionPerformed
  

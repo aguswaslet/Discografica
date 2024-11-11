@@ -112,6 +112,7 @@ public class ControladorRecital {
        guardar();
     }
     
+
     public void nuevoRecital(int id, float recaudacion,float costo,String owner,Date fecha){
         Recital nuevo = new Recital(id);
         
@@ -129,6 +130,17 @@ public class ControladorRecital {
        }
        
        guardar();
+    }
+    
+    public void bajaRecitales(String ow){
+        this.recitales = cargar();
+        for(Recital act:recitales.values()){
+            if(act.getOwner().equals(ow)){
+                recitales.remove(act.getId());
+            }
+        }
+        guardar();
+
     }
     
     public TreeMap<Integer,Recital> getRecitales(){

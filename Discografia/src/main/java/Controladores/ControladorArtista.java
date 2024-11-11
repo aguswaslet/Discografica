@@ -155,6 +155,21 @@ public class ControladorArtista {
        guardar();
     }
     
+    public void bajaArtista(String id){
+        this.artistas = cargar();
+        if(artistas.containsKey(id)){
+            artistas.remove(id);
+            ControladorDisco Cdisco = new ControladorDisco();
+            Cdisco.bajaDiscos(id);
+            ControladorRecital Crecital = new ControladorRecital();
+            Crecital.bajaRecitales(id);
+            ControladorCancion Ccancion = new ControladorCancion();
+            Ccancion.bajaCanciones(id);
+        }
+        guardar();
+        
+    }
+    
     public TreeMap<String,Artista> getArtistas(){
         return cargar();
     }

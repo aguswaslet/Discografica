@@ -118,6 +118,16 @@ public class ControladorCancion {
        guardar();
     }
     
+    public void bajaCanciones(String ow){
+        this.canciones = cargar();
+        for(Cancion act:canciones.values()){
+            if(act.getOwner().equals(ow)){
+                canciones.remove(act.getId());
+            }
+        }
+        guardar();
+    }
+    
     public TreeMap<Integer,Cancion> getCanciones(){
         return cargar();
     }

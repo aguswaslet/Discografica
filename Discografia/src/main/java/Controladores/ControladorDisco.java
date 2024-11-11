@@ -111,6 +111,16 @@ public class ControladorDisco {
        guardar();
     }
     
+    public void bajaDiscos(String ow){
+        this.discos = cargar();
+        for(Disco act:discos.values()){
+            if(act.getOwner().equals(ow)){
+                discos.remove(act.getId());
+            }
+        }
+        guardar();
+    }
+    
     public TreeMap<Integer,Disco> getDiscos(){
         return cargar();
     }

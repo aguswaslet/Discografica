@@ -112,6 +112,16 @@ public class ControladorRecital {
        guardar();
     }
     
+    public void bajaRecitales(String ow){
+        this.recitales = cargar();
+        for(Recital act:recitales.values()){
+            if(act.getOwner().equals(ow)){
+                recitales.remove(act.getId());
+            }
+        }
+        guardar();
+    }
+    
     public TreeMap<Integer,Recital> getRecitales(){
         return cargar();
     }

@@ -19,6 +19,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setSize(1200, 700);
         this.FechaLB.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
 

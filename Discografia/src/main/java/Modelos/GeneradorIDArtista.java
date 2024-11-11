@@ -19,7 +19,9 @@ import javax.swing.JOptionPane;
  */
 public class GeneradorIDArtista implements Serializable{
     private static String ultimoId = "AAAAAA";
+
     private static final String fileName = "src/Data/Serialisados/GeneradorIDArtista.ser";
+
 
     // Método para generar un nuevo ID
     public static String generarId() {

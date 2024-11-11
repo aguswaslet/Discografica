@@ -47,6 +47,7 @@ public class Artista implements Serializable{
     
     public void Artista(String id_artista) {
         this.id_artista = id_artista;
+        GeneradorIDArtista.generarId();
     }
 
     public float get$rep() {

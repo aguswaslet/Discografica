@@ -22,6 +22,7 @@ public class Consagrado extends Artista{
         set$GananciasRecital((float)0.275);
     }
     
+    
     @Override
     public String toString(){
         return "Nombre: "+getNombre()+" / Consagrado / Nro. Integrantes: "+getIntegrantes();

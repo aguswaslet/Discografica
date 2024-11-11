@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+
 import java.util.TreeMap;
 
 public class ControladorXML {
@@ -22,6 +23,15 @@ public class ControladorXML {
     static String ruta = "Data/XML/artistaerr.xml";
      
     
+=======
+import javax.swing.JOptionPane;
+import java.util.TreeMap;
+
+public class ControladorXML {
+
+    static String ruta = "Data/XML/artistaerr.xml";
+
+>>>>>>> d896aa8232813f28eda21f7dd0c2d6fd21deb5a8
     public static String getRuta() {
         return ruta;
     }
@@ -42,7 +52,11 @@ public class ControladorXML {
             Element nodoRaiz = doc.getDocumentElement();
 
             // Lista para almacenar todos los artistas
+<<<<<<< HEAD
            TreeMap<String, Artista> artistas = new TreeMap<>();
+=======
+            TreeMap<String, Artista> artistas = new TreeMap<>();
+>>>>>>> d896aa8232813f28eda21f7dd0c2d6fd21deb5a8
 
             NodeList listaArtistas = nodoRaiz.getChildNodes();
             // Iterar sobre cada artista
@@ -187,7 +201,16 @@ public class ControladorXML {
 
                 }
             }
+<<<<<<< HEAD
             
+=======
+            if (!reporte.isEmpty()) {
+                Reporte ventrep = new Reporte();
+                ventrep.cargarReporte(reporte);
+                ventrep.setVisible(true);
+                return new TreeMap<String, Artista>();
+            }
+>>>>>>> d896aa8232813f28eda21f7dd0c2d6fd21deb5a8
 
             // Lectura de artistas
             /*for (Artista artista : artistas.values()) {
@@ -213,6 +236,7 @@ public class ControladorXML {
             }
             return artistas;
         } catch (SAXException ex) {
+<<<<<<< HEAD
             Reporte ventrep = new Reporte();
                 ventrep.cargarReporte("Error en la sintaxis del XML, errores de formato, o problemas durante la lectura del archivo\n" + ex.getMessage());
                 ventrep.setVisible(true);
@@ -229,6 +253,17 @@ public class ControladorXML {
                 return new TreeMap<String, Artista>();
         }
         
+=======
+            JOptionPane.showMessageDialog(null, "Error en la sintaxis del XML, errores de formato, o problemas durante la lectura del archivo\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return new TreeMap<String, Artista>();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error: Archivo no encontrado o faltan permisos para acceder al archivo\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return new TreeMap<String, Artista>();
+        } catch (ParserConfigurationException ex) {
+            JOptionPane.showMessageDialog(null, "Error: caracteristica de DocumenteBuilderFactory no valida\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return new TreeMap<String, Artista>();
+        }
+>>>>>>> d896aa8232813f28eda21f7dd0c2d6fd21deb5a8
     }
 
     // Método para obtener el valor de texto de un nodo
@@ -251,6 +286,8 @@ public class ControladorXML {
     // Agregar el manejo de excepciones aquí
 
     return cancion;
+
 }*/
+
 }
 

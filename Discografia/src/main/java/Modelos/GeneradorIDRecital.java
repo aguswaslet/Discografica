@@ -20,7 +20,9 @@ import javax.swing.JOptionPane;
  */
 public class GeneradorIDRecital implements Serializable{
     private static int ultimoId = 0;
+
     private static final String fileName = "src/Data/Serialisados/GeneradorIDRecital.ser";
+
 
     // Método para generar un nuevo ID
     public static int generarId() {

@@ -29,6 +29,11 @@ public class AltaCancionPanel extends javax.swing.JPanel {
         return OwnerFild.getText().toUpperCase();
     }
     
+    public int getDisco(){
+        int disco = Integer.parseInt(DiscoFild.getText());
+        return disco;
+    }
+    
     public int getDuracion(){
         int Duracion = Integer.parseInt(DuracionFild.getText());
         return Duracion;
@@ -63,6 +68,8 @@ public class AltaCancionPanel extends javax.swing.JPanel {
         SencilloCheck = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
         ReproduccionesFild = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        DiscoFild = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -87,7 +94,7 @@ public class AltaCancionPanel extends javax.swing.JPanel {
         jLabel2.setText("Nombre:");
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Duracion:  (Segundos)");
+        jLabel3.setText("Duracion:  (Seg)");
 
         DuracionFild.setText("Ej: 84");
         DuracionFild.addActionListener(new java.awt.event.ActionListener() {
@@ -97,9 +104,10 @@ public class AltaCancionPanel extends javax.swing.JPanel {
         });
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Owner: (Disco al que pertenece)");
+        jLabel4.setText("Owner: (codigo de Artista)");
 
-        OwnerFild.setText("Ej: 1");
+        OwnerFild.setText("Ej: AAAAAA");
+        OwnerFild.setToolTipText("puto");
 
         SencilloCheck.setText("Sencillo");
 
@@ -107,6 +115,16 @@ public class AltaCancionPanel extends javax.swing.JPanel {
         jLabel5.setText("Reproducciones");
 
         ReproduccionesFild.setText("Ej: 9999");
+
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Disco:");
+
+        DiscoFild.setText("Ej: 1");
+        DiscoFild.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DiscoFildActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -118,13 +136,17 @@ public class AltaCancionPanel extends javax.swing.JPanel {
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(138, 138, 138)
-                                .addComponent(DuracionFild, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DuracionFild, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(DiscoFild, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(OwnerFild, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,8 +181,10 @@ public class AltaCancionPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(DuracionFild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(DuracionFild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(DiscoFild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(OwnerFild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -168,7 +192,7 @@ public class AltaCancionPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SencilloCheck)
                     .addComponent(AgreggarCancionBTN))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -182,12 +206,17 @@ public class AltaCancionPanel extends javax.swing.JPanel {
 
     private void AgreggarCancionBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgreggarCancionBTNActionPerformed
         ControladorCancion Controlador = new ControladorCancion();
-        Controlador.nuevaCancion(getOwner(),getNombre(),getDuracion(),getReproducciones(), getSencillo());
+        Controlador.nuevaCancion(getOwner(),getNombre(),getDuracion(),getReproducciones(),getDisco(), getSencillo());
     }//GEN-LAST:event_AgreggarCancionBTNActionPerformed
+
+    private void DiscoFildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiscoFildActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DiscoFildActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgreggarCancionBTN;
+    private javax.swing.JTextField DiscoFild;
     private javax.swing.JTextField DuracionFild;
     private javax.swing.JTextField NombreFild;
     private javax.swing.JTextField OwnerFild;
@@ -198,5 +227,6 @@ public class AltaCancionPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }

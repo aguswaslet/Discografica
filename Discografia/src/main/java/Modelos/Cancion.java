@@ -17,14 +17,16 @@ public class Cancion implements Serializable{
     private int Minutos;
     private int Segundos;
     private String Owner;
+    private int Disco;
 
-    public Cancion(int id_cancion, String Nombre, int Reproducciones, int Minutos, int Segundos,String owner) {
+    public Cancion(int id_cancion, String Nombre, int Reproducciones, int Minutos, int Segundos,String owner,int disco) {
         this.id_cancion = id_cancion;
         this.Nombre = Nombre;
         this.Reproducciones = Reproducciones;
         this.Minutos = Minutos;
         this.Segundos = Segundos;
-        this.Owner = owner;
+        this.Owner = owner.toUpperCase();
+        this.Disco = disco;
     }
     
     public Cancion() {
@@ -34,11 +36,20 @@ public class Cancion implements Serializable{
         Minutos = 0;
         Segundos = 0;
         Owner= "";
+        Disco = 0;
+    }
+    
+    public int getDisco(){
+        return Disco;
+    }
+    
+    public void setDisco(int disco){
+        Disco = disco;
     }
     
     public void setOwner(String o){
         
-        this.Owner = o;
+        this.Owner = o.toUpperCase();
     }
     
     public String getOwner(){

@@ -7,6 +7,8 @@ package Vistas;
 import Controladores.ControladorRecital;
 import Modelos.Recital;
 import java.awt.BorderLayout;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.TreeMap;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
@@ -37,14 +39,13 @@ public class RecitalPanel extends javax.swing.JPanel {
         model.addColumn("Recaudado");
         model.addColumn("Neto");
         model.addColumn("Owner");
-        model.addColumn("");
         TablaArtistas.setModel(model);
         
         model.setRowCount(0);
         for (Recital act:recitales.values()) {
             
                 Object[] fila = {
-                    act.getFecha(),
+                    new SimpleDateFormat("dd/MM/yyyy").format(act.getFecha()),
                     "$"+act.getCosto(),
                     "$"+act.getRecaudacion(),
                     "$"+act.getNeto(),
@@ -54,8 +55,8 @@ public class RecitalPanel extends javax.swing.JPanel {
                 model.addRow(fila);
             
         }
-        TablaArtistas.getColumnModel().getColumn(3).setCellRenderer(new ButtonRenderer());
-        TablaArtistas.getColumnModel().getColumn(3).setCellEditor(new ButtonEditor(new JCheckBox(), TablaArtistas));
+        //TablaArtistas.getColumnModel().getColumn(3).setCellRenderer(new ButtonRenderer());
+        //TablaArtistas.getColumnModel().getColumn(3).setCellEditor(new ButtonEditor(new JCheckBox(), TablaArtistas));
     
     }      
     
@@ -196,7 +197,7 @@ public class RecitalPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarRecitalBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarRecitalBTNActionPerformed
-        AltaDiscoPanel panel = new AltaDiscoPanel();
+        AltaRecitalPanel panel = new AltaRecitalPanel();
         setBackground(panel);
 
     }//GEN-LAST:event_AgregarRecitalBTNActionPerformed

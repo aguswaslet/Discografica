@@ -6,6 +6,7 @@ package Modelos;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  *
@@ -13,12 +14,12 @@ import java.time.LocalDate;
  */
 public class Recital implements Serializable{
     private int id_recital;
-    private LocalDate Fecha;
+    private Date Fecha;
     private String Owner;
     private float Recaudacion;
     private float Costo;
 
-    public Recital(int id,LocalDate Fecha,String owner, float Recaudacion, float Costo) {
+    public Recital(int id,Date Fecha,String owner, float Recaudacion, float Costo) {
         this.id_recital = id;
         this.Fecha = Fecha;
         this.Owner = owner.toUpperCase();
@@ -28,7 +29,6 @@ public class Recital implements Serializable{
     
     public Recital(){
         id_recital = GeneradorIDRecital.generarId();
-        Fecha = LocalDate.now();
         Owner = "";
         Recaudacion = 0;
         Costo = 0;
@@ -51,11 +51,11 @@ public class Recital implements Serializable{
     }
 
     
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return Fecha;
     }
 
-    public void setFecha(LocalDate Fecha) {
+    public void setFecha(Date Fecha) {
         this.Fecha = Fecha;
     }
 

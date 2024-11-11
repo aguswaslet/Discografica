@@ -63,6 +63,6 @@ public class Disco implements Serializable{
     }
     
     public String toString(){
-        return Nombre+" / Unidades Vendidas: $"+UnidadesVendidas;
+        return Nombre+" / Unidades Vendidas: "+UnidadesVendidas;
     }
 }

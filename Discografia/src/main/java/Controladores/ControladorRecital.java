@@ -93,7 +93,7 @@ public class ControladorRecital {
         }
     }
     
-    public void nuevoDisco(float recaudacion,float costo,String owner,LocalDate fecha){
+    public void nuevoRecital(float recaudacion,float costo,String owner,Date fecha){
         Recital nuevo = new Recital();
         
         nuevo.setRecaudacion(recaudacion);

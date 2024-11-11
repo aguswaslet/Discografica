@@ -5,9 +5,7 @@
  */
 package Vistas;
 
-import Controladores.ControladorCancion;
-import Controladores.ControladorDisco;
-import java.time.LocalDate;
+import Controladores.ControladorRecital;
 import java.util.Date;
 
 /**
@@ -33,6 +31,10 @@ public class AltaRecitalPanel extends javax.swing.JPanel {
     public float getCosto(){
         float costo = Integer.parseInt(CostoFild.getText());
         return costo;
+    }
+    
+    public Date getFecha(){
+        return FechaFild.getDate();
     }
     
     public float getRecaudado(){
@@ -167,8 +169,8 @@ public class AltaRecitalPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_CostoFildActionPerformed
 
     private void AgreggarDiscoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgreggarDiscoBTNActionPerformed
-        ControladorDisco Controlador = new ControladorDisco();
-        //Controlador.nuevoDisco(getRecaudado(),getCosto(),getOwner(),getFecha());
+        ControladorRecital Controlador = new ControladorRecital();
+        Controlador.nuevoRecital(getRecaudado(),getCosto(),getOwner(),getFecha());
     }//GEN-LAST:event_AgreggarDiscoBTNActionPerformed
 
     private void RecaudadoFildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecaudadoFildActionPerformed

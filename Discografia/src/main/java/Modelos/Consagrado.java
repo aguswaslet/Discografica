@@ -4,8 +4,6 @@
  */
 package Modelos;
 
-import java.io.Serializable;
-
 /**
  *
  * @author agust
@@ -13,13 +11,15 @@ import java.io.Serializable;
 public class Consagrado extends Artista{
     public Consagrado(){
         super();
-        set$rep((float)1.2);
-        set$UVendidas((float)55.75);
+        set$rep((float)0.12);
+        set$UVendidas((float)0.5575);
+        set$GananciasRecital((float)0.275);
     }
     public Consagrado(String id){
         setId(id);
-        set$rep((float)1.2);
-        set$UVendidas((float)55.75);
+        set$rep((float)0.12);
+        set$UVendidas((float)0.5575);
+        set$GananciasRecital((float)0.275);
     }
     
     @Override

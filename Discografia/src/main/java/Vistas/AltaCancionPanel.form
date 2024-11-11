@@ -27,15 +27,19 @@
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="DuracionFild" min="-2" pref="105" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" pref="43" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="DiscoFild" min="-2" pref="105" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel4" min="-2" pref="195" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="OwnerFild" min="-2" pref="116" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel3" min="-2" pref="146" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jLabel2" min="-2" pref="69" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -82,8 +86,10 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="DuracionFild" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DiscoFild" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="OwnerFild" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -93,7 +99,7 @@
                   <Component id="SencilloCheck" min="-2" max="-2" attributes="0"/>
                   <Component id="AgreggarCancionBTN" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="68" max="32767" attributes="0"/>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -136,7 +142,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Duracion:  (Segundos)"/>
+        <Property name="text" type="java.lang.String" value="Duracion:  (Seg)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="DuracionFild">
@@ -152,12 +158,13 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Owner: (Disco al que pertenece)"/>
+        <Property name="text" type="java.lang.String" value="Owner: (codigo de Artista)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="OwnerFild">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ej: 1"/>
+        <Property name="text" type="java.lang.String" value="Ej: AAAAAA"/>
+        <Property name="toolTipText" type="java.lang.String" value="puto"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="SencilloCheck">
@@ -177,6 +184,22 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ej: 9999"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Disco:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="DiscoFild">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ej: 1"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DiscoFildActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

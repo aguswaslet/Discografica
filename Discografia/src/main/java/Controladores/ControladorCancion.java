@@ -32,7 +32,7 @@ public class ControladorCancion {
     public float Liquidar(String ow){
         float total = 0;
         for(Cancion act:cargar().values()){
-            if(act.getOwner() == ow){
+            if(act.getOwner().equals(ow)){
                 total+= act.Regalias();
             }
         }
@@ -93,7 +93,7 @@ public class ControladorCancion {
         }
     }
     
-    public void nuevaCancion(String owner,String nombre,int duracion,int reproducciones,boolean sensillo){
+    public void nuevaCancion(String owner,String nombre,int duracion,int reproducciones,int disco,boolean sensillo){
         Cancion nuevo;
         
         if(sensillo){
@@ -105,6 +105,7 @@ public class ControladorCancion {
         nuevo.setDuracion(duracion);
         nuevo.setOwner(owner);
         nuevo.setReproducciones(reproducciones);
+        nuevo.setDisco(disco);
        this.canciones = cargar();
        
        if(!canciones.containsKey(nuevo.getId())){

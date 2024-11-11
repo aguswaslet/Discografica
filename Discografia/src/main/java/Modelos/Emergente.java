@@ -19,7 +19,7 @@ public class Emergente extends Artista{
     }
     
     public Emergente(String id){
-        setId(id);
+        super(id);
         set$rep((float)0.20);
         set$UVendidas((float)0.2315);
         set$GananciasRecital((float)0.2105);

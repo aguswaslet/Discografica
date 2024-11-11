@@ -131,6 +131,29 @@ public class ControladorArtista {
        
        guardar();
     }
+    public void nuevoArtista(String id, String nombre,int integrantes,String genero,boolean consagrado){
+        Artista nuevo;
+        
+        if(consagrado){
+            nuevo = new Consagrado(id);
+        }else{
+            nuevo = new Emergente(id);
+        }
+        nuevo.setNombre(nombre);
+        nuevo.setIntegrantes(integrantes);
+        nuevo.setGeneroMusical(genero);
+        
+       this.artistas = cargar();
+       
+       if(!artistas.containsKey(nuevo.getId())){
+           artistas.put(nuevo.getId(), nuevo);
+           System.out.println("Nuevo Artista Agregado!");
+       }else{
+           System.out.println("Artista Ya Existe!");
+       }
+       
+       guardar();
+    }
     
     public TreeMap<String,Artista> getArtistas(){
         return cargar();

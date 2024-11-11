@@ -19,13 +19,14 @@ public class Recital implements Serializable{
     private float Recaudacion;
     private float Costo;
 
-    public Recital(int id,Date Fecha,String owner, float Recaudacion, float Costo) {
-        this.id_recital = id;
-        this.Fecha = Fecha;
-        this.Owner = owner.toUpperCase();
-        this.Recaudacion = Recaudacion;
-        this.Costo = Costo;
+ 
+
+    public Recital(int id_recital) {
+        this.id_recital = id_recital;
+        GeneradorIDRecital.Actualiza(id_recital);
     }
+    
+    
     
     public Recital(){
         id_recital = GeneradorIDRecital.generarId();

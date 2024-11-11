@@ -16,7 +16,7 @@ public class Consagrado extends Artista{
         set$GananciasRecital((float)0.275);
     }
     public Consagrado(String id){
-        setId(id);
+        super(id);
         set$rep((float)0.12);
         set$UVendidas((float)0.5575);
         set$GananciasRecital((float)0.275);

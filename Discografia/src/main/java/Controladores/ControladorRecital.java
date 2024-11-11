@@ -112,6 +112,25 @@ public class ControladorRecital {
        guardar();
     }
     
+    public void nuevoRecital(int id, float recaudacion,float costo,String owner,Date fecha){
+        Recital nuevo = new Recital(id);
+        
+        nuevo.setRecaudacion(recaudacion);
+        nuevo.setOwner(owner);
+        nuevo.setCosto(costo);
+        nuevo.setFecha(fecha);
+       this.recitales = cargar();
+       
+       if(!recitales.containsKey(nuevo.getId())){
+           recitales.put(nuevo.getId(), nuevo);
+           System.out.println("Nuevo Recital Agregado!");
+       }else{
+           System.out.println("Recital Existe!");
+       }
+       
+       guardar();
+    }
+    
     public TreeMap<Integer,Recital> getRecitales(){
         return cargar();
     }

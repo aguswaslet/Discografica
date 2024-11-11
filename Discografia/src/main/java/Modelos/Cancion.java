@@ -19,15 +19,13 @@ public class Cancion implements Serializable{
     private String Owner;
     private int Disco;
 
-    public Cancion(int id_cancion, String Nombre, int Reproducciones, int Minutos, int Segundos,String owner,int disco) {
+  
+
+    public Cancion(int id_cancion) {
         this.id_cancion = id_cancion;
-        this.Nombre = Nombre;
-        this.Reproducciones = Reproducciones;
-        this.Minutos = Minutos;
-        this.Segundos = Segundos;
-        this.Owner = owner.toUpperCase();
-        this.Disco = disco;
+        GeneradorIDCancion.Actualiza(id_cancion);
     }
+    
     
     public Cancion() {
         id_cancion = GeneradorIDCancion.generarId();

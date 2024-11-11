@@ -4,20 +4,20 @@
  */
 package Vistas;
 
-import Controladores.ControlaDiscografia;
+
 
 /**
  *
  * @author agust
  */
 public class BajaArtistaPanel extends javax.swing.JFrame {
-    ControlaDiscografia controlador;
+   
     /**
      * Creates new form BajaArtista
      */
-    public BajaArtistaPanel(ControlaDiscografia adm) {
+    public BajaArtistaPanel() {
         initComponents();
-        controlador = adm;
+        
     }
 
     
@@ -73,7 +73,7 @@ public class BajaArtistaPanel extends javax.swing.JFrame {
     private void aceptarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarBTNActionPerformed
         String id = getID();
         if(!id.isEmpty()){
-            controlador.bajaArtista(id);
+           
         }
     }//GEN-LAST:event_aceptarBTNActionPerformed
  

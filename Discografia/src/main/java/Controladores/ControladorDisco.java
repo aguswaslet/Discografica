@@ -114,4 +114,23 @@ public class ControladorDisco {
     public TreeMap<Integer,Disco> getDiscos(){
         return cargar();
     }
+    
+    public void nuevoDisco(int id,String owner,String nombre,int UVendidas){
+        Disco nuevo = new Disco(id);
+        
+        
+        nuevo.setNombre(nombre);
+        nuevo.setOwner(owner);
+        nuevo.setUnidadesVendidas(UVendidas);
+       this.discos = cargar();
+       
+       if(!discos.containsKey(nuevo.getId())){
+           discos.put(nuevo.getId(), nuevo);
+           System.out.println("Nuevo Disco Agregado!");
+       }else{
+           System.out.println("Disco Existe!");
+       }
+       
+       guardar();
+    }
 }

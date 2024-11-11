@@ -118,6 +118,31 @@ public class ControladorCancion {
        guardar();
     }
     
+    public void nuevaCancion(int id, String owner,String nombre,int duracion,int reproducciones,int disco,boolean sensillo){
+        Cancion nuevo;
+        
+        if(sensillo){
+            nuevo = new Sencillo(id);
+        }else{
+            nuevo = new Cancion(id);
+        }
+        nuevo.setNombre(nombre);
+        nuevo.setDuracion(duracion);
+        nuevo.setOwner(owner);
+        nuevo.setReproducciones(reproducciones);
+        nuevo.setDisco(disco);
+       this.canciones = cargar();
+       
+       if(!canciones.containsKey(nuevo.getId())){
+           canciones.put(nuevo.getId(), nuevo);
+           System.out.println("Nueva Cancion Agregada!");
+       }else{
+           System.out.println("Cancion Existe!");
+       }
+       
+       guardar();
+    }
+    
     public TreeMap<Integer,Cancion> getCanciones(){
         return cargar();
     }

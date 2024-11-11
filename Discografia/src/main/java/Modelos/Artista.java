@@ -37,7 +37,7 @@ public class Artista implements Serializable{
     public Artista(String id) {
 
         id_artista = id;
-
+        GeneradorIDArtista.Actualiza(id);
         //id_artista = GeneradorID.generarId();
     }
 

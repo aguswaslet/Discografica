@@ -5,7 +5,6 @@
  */
 package Vistas;
 
-import Controladores.ControlaDiscografia;
 import Controladores.ControladorArtista;
 import Modelos.Discografia;
 

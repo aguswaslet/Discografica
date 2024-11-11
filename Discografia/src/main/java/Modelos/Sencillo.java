@@ -12,6 +12,12 @@ public class Sencillo extends Cancion{
     public Sencillo(){
         super();
     }
+
+    public Sencillo(int id_cancion) {
+        super(id_cancion);
+    }
+    
+    
     
     public String getTipo(){
         return "Sencillo";

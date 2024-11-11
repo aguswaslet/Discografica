@@ -17,15 +17,13 @@ public class Disco implements Serializable{
     private String Owner;
     private String Nombre;
     private int UnidadesVendidas;
-    
-    public Disco(int id_disco, String Nombre, String owner,int UnidadesVendidas) {
-        this.id_disco = id_disco;
-        this.Owner = owner.toUpperCase();
-        this.Nombre = Nombre;
-        this.UnidadesVendidas = UnidadesVendidas;
-        
-    }
 
+    public Disco(int id_disco) {
+        this.id_disco = id_disco;
+        GeneradorIDDisco.Actualiza(id_disco);
+    }
+    
+ 
     public Disco() {
         id_disco = GeneradorIDDisco.generarId();
     }

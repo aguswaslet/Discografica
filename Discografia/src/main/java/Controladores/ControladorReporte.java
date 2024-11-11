@@ -19,10 +19,10 @@ import java.time.format.DateTimeFormatter;
  * @author Alumno
  */
 public class ControladorReporte {
-    //private static LocalDateTime fecha;
-    /*
+   private static LocalDateTime fecha;
+   
     public static void agregarReporte(ArrayList<String> report){
-        LocalDateTime fecha = new LocalDateTime.now();
+        LocalDateTime fecha = LocalDateTime.now();
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy HH-mm-ss");
         String fechaact = fecha.format(formato);
             try {
@@ -45,7 +45,7 @@ public class ControladorReporte {
         
     }
     public static void agregarReporte(String report){
-        LocalDateTime fecha2 = new LocalDateTime.now();
+        LocalDateTime fecha2 = LocalDateTime.now();
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy HH-mm-ss");
         String fechaact = fecha2.format(formato);
             try {
@@ -67,7 +67,7 @@ public class ControladorReporte {
         
     }
     
-    */
+    
     
     
     

@@ -17,22 +17,13 @@ import javax.swing.JOptionPane;
  * @author agust
  */
 public class GestorPermanencia {
-    private File archivoSerializado;
-    private String ruta = "C:\\Users\\Alumno\\Desktop\\Discografica\\Discografia\\Data\\Serialisados\\Permanencia.ser";
-
-    public GestorPermanencia(String nombreArchivo) {
-        archivoSerializado = new File(nombreArchivo);
-    }
+    private static final File archivoSerializado = new File("src/Data/Serialisados/Permanencia.ser");
     
-    public GestorPermanencia(){
-        archivoSerializado = new File(ruta);
-    }
-
-    public void guardar(Discografia adm) {
+    public static void guardar(Discografia adm) {
         if (!archivoSerializado.exists())/*el archivo no existe*/ {
             try {
                 if (archivoSerializado.createNewFile()) {
-                    System.out.println("Archivo Ordenes.ser creado correctamente.");
+                    System.out.println("Archivo Permanencia.ser creado correctamente.");
                     try {
                         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(archivoSerializado));
                         oos.writeObject(adm);
@@ -43,7 +34,7 @@ public class GestorPermanencia {
                     }
 
                 } else {
-                    System.out.println("No se pudo crear el archivo Ordenes.ser.");
+                    System.out.println("No se pudo crear el archivo Permanencia.ser!");
                 }
             } catch (IOException e) {
                 System.out.println("Error al crear el archivo: " + e.getMessage());
@@ -62,7 +53,7 @@ public class GestorPermanencia {
         }
     }
     
-    public Discografia cargar(){
+    public static Discografia cargar(){
         Discografia adm =  new Discografia();
         if (archivoSerializado.exists())/*el archivo existe*/ {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivoSerializado))) {

@@ -13,6 +13,10 @@ public class Sencillo extends Cancion{
         super();
     }
     
+    public String getTipo(){
+        return "Sencillo";
+    }
+    
     @Override
     public float Regalias(){
         return (float)(getReproducciones()*1.5);

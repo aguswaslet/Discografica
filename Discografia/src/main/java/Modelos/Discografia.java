@@ -4,23 +4,25 @@
 
 package Modelos;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.TreeMap;
 
 /**
  *
  * @author agust
  */
-public class Discografia {
+public class Discografia implements Serializable{
 
     private String Nombre;
-    private TreeMap<String,Artista> Artistas;
+    private static TreeMap<String,Artista> Artistas;
 
     public Discografia(String Nombre, TreeMap<String,Artista> Artistas) {
         this.Nombre = Nombre;
         this.Artistas = Artistas;
     }
     public Discografia() {
+        Nombre = "%%%%%%%%%";
+        Artistas = new TreeMap<String,Artista>();
     }
     
     public String getNombre() {
@@ -47,19 +49,27 @@ public class Discografia {
         this.Artistas = Artistas;
     }
     
-    public void addArtista(Artista obj){
-        if(!Artistas.containsKey(obj.getId())){
+    public static void addArtista(Artista obj){
+        if(Artistas.isEmpty()){
             Artistas.put(obj.getId(), obj);
         }else{
-            System.out.println("Id Repetido, No se agrego el Artista!");
+            if(!Artistas.containsKey(obj.getId())){
+                Artistas.put(obj.getId(), obj);
+            }else{
+                System.out.println("Id Repetido, No se agrego el Artista!");
+            }
         }
     }
     
-    public void deleteArtista(int id){
-        if(Artistas.containsKey(id)){
-            Artistas.remove(id);
+    public void deleteArtista(String id){
+        if(Artistas.isEmpty()){
+            System.out.println("Lista de Artistas Vacia!");
         }else{
-            System.out.println("El Artista no pertenese a la Discografica!");
+            if(Artistas.containsKey(id)){
+                Artistas.remove(id);
+            }else{
+                System.out.println("El Artista no pertenese a la Discografica!");
+            }
         }
     }
         

@@ -8,7 +8,10 @@ package Controladores;
 import Modelos.Artista;
 import Modelos.Cancion;
 import Modelos.Disco;
+import Modelos.Discografia;
+import Modelos.GestorPermanencia;
 import Modelos.Recital;
+import Vistas.MainFrame;
 import java.util.TreeMap;
 
 /**
@@ -17,6 +20,14 @@ import java.util.TreeMap;
  */
 public class Main {
     public static void main(String args[]) {
+        
+        /*Discografia discografia;
+        discografia = GestorPermanencia.cargar();
+        
+        MainFrame mainf = new MainFrame(discografia);
+        mainf.setVisible(true);
+        System.out.println("hola mundo");
+        
         TreeMap<String, Artista> artistas = new TreeMap<>();
         artistas= ControladorXML.leer();
         for (Artista artista : artistas.values()) {
@@ -39,6 +50,7 @@ public class Main {
                     System.out.println("  Recital: " + recital.getFecha() + " (Recaudación: " + recital.getRecaudacion() + ", Costos: " + recital.getCosto() + ")");
                 }
                 
+    */
     }
 }
-}
+

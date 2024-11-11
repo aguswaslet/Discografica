@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class GeneradorIDDisco implements Serializable{
     private static int ultimoId = 0;
-    private static final String fileName = "C:\\Users\\Alumno\\Desktop\\Discografica\\Discografia\\Data\\Serialisados\\GeneradorIDDisco.ser";
+    private static final String fileName = "src/Data/Serialisados/GeneradorIDDisco.ser";
 
     // Método para generar un nuevo ID
     public static int generarId() {
@@ -44,7 +44,8 @@ public class GeneradorIDDisco implements Serializable{
 
             try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
                 oos.writeObject(ultimoId);
-                System.out.println("Estado guardado exitosamente.");
+                System.out.println("Estado GeneradoIdDiscos guardado exitosamente.");
+                oos.close();
             } catch (IOException e) {
                JOptionPane.showMessageDialog(null, e.toString());
             }
@@ -56,10 +57,11 @@ public class GeneradorIDDisco implements Serializable{
     public static void cargarEstado() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
             ultimoId = (int) ois.readObject();
-            System.out.println("Estado cargado exitosamente.");
+            System.out.println("Estado GeneradoIdDiscos cargado exitosamente.");
+            ois.close();
         } catch (IOException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-            System.out.println("El archivo de estados no existe. Creando nuevo archivo.");
+            //JOptionPane.showMessageDialog(null, e.toString());
+            System.out.println("El archivo de GeneradoIdDiscos.ser no existe. Creando nuevo archivo.");
             guardarEstado(); // Crear nuevo archivo y guardar estado inicial
         }
     }

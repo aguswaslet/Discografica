@@ -4,6 +4,8 @@
  */
 package Modelos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author agust
@@ -14,9 +16,19 @@ public class Consagrado extends Artista{
         set$rep((float)1.2);
         set$UVendidas((float)55.75);
     }
+    public Consagrado(String id){
+        setId(id);
+        set$rep((float)1.2);
+        set$UVendidas((float)55.75);
+    }
     
     @Override
     public String toString(){
-        return "Nombre: "+getNombre()+" / Consagrado / N° Integrantes: "+getIntegrantes();
+        return "Nombre: "+getNombre()+" / Consagrado / Nro. Integrantes: "+getIntegrantes();
+    }
+    
+    @Override
+    public String getRango(){
+        return "Consagrado";
     }
 }

@@ -15,12 +15,12 @@
                         <Segundos>53</Segundos>
                         <Reproducciones>150000</Reproducciones>
                     </Cancion>
-                    <Cancion id="2">
+                    <Sencillo id="2">
                         <Nombre>When the Sun Goes Down</Nombre>
                         <Minutos>3</Minutos>
                         <Segundos>20</Segundos>
                         <Reproducciones>120000</Reproducciones>
-                    </Cancion>
+                    </Sencillo>
                 </Canciones>
             </Disco>
         </Discos>
@@ -75,12 +75,12 @@
                 <Nombre>Currents</Nombre>
                 <UnidadesVendidas>95000</UnidadesVendidas>
                 <Canciones>
-                    <Cancion id="5">
+                    <Sencillo id="5">
                         <Nombre>Let It Happen</Nombre>
                         <Minutos>7</Minutos>
                         <Segundos>46</Segundos>
                         <Reproducciones>300000</Reproducciones>
-                    </Cancion>
+                    </Sencillo>
                     <Cancion id="6">
                         <Nombre>The Less I Know The Better</Nombre>
                         <Minutos>3</Minutos>
@@ -147,12 +147,12 @@
                         <Segundos>22</Segundos>
                         <Reproducciones>200000</Reproducciones>
                     </Cancion>
-                    <Cancion id="10">
+                    <Sencillo id="10">
                         <Nombre>Gamma Knife</Nombre>
                         <Minutos>4</Minutos>
                         <Segundos>22</Segundos>
                         <Reproducciones>180000</Reproducciones>
-                    </Cancion>
+                    </Sencillo>
                 </Canciones>
             </Disco>
         </Discos>
@@ -279,12 +279,12 @@
                         <Segundos>57</Segundos>
                         <Reproducciones>150000</Reproducciones>
                     </Cancion>
-                    <Cancion id="18">
+                    <Sencillo id="18">
                         <Nombre>Speedway</Nombre>
                         <Minutos>3</Minutos>
                         <Segundos>31</Segundos>
                         <Reproducciones>120000</Reproducciones>
-                    </Cancion>
+                    </Sencillo>
                 </Canciones>
             </Disco>
         </Discos>
@@ -306,12 +306,12 @@
                 <Nombre>Californication</Nombre>
                 <UnidadesVendidas>800000</UnidadesVendidas>
                 <Canciones>
-                    <Cancion id="19">
+                    <Sencillo id="19">
                         <Nombre>Scar Tissue</Nombre>
                         <Minutos>3</Minutos>
                         <Segundos>37</Segundos>
                         <Reproducciones>1000000</Reproducciones>
-                    </Cancion>
+                    </Sencillo>
                     <Cancion id="20">
                         <Nombre>Otherside</Nombre>
                         <Minutos>4</Minutos>

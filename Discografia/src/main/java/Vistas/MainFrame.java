@@ -219,7 +219,7 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ArtistasBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArtistasBTNActionPerformed
-        System.out.println("holagey");
+        
         ArtistasPanel panel = new  ArtistasPanel();
         setBackground(panel);
         panel.MostrarLista();
@@ -231,7 +231,9 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_LiquidasionesBTNActionPerformed
 
     private void ReportesBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportesBTNActionPerformed
-        // TODO add your handling code here:
+ReportesPanel panel = new  ReportesPanel();
+        setBackground(panel);
+                // TODO add your handling code here:
     }//GEN-LAST:event_ReportesBTNActionPerformed
 
     private void GuardarSalirBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarSalirBTNActionPerformed

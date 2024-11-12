@@ -40,7 +40,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="bodyPanel" min="-2" pref="320" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="BTNPanel" pref="146" max="32767" attributes="0"/>
+              <Component id="BTNPanel" pref="131" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -177,7 +177,7 @@
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="GeneroFiltroFild" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="AgregarArtistaBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="EliminarArtistaBTN" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -251,6 +251,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="integrantesFiltroFild">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="integrantesFiltroFildKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -264,6 +267,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="GeneroFiltroFild">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="GeneroFiltroFildKeyTyped"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

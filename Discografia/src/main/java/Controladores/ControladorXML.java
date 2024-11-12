@@ -22,7 +22,7 @@ import java.util.Date;
 
 public class ControladorXML {
 
-    static String ruta= "Data/XML/artista.xml";
+    static String ruta= "src/Data/XML/artista.xml";
 
 
     public static String getRuta() {

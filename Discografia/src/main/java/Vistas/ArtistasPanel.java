@@ -9,7 +9,9 @@ import Modelos.Artista;
 import java.awt.BorderLayout;
 import java.util.TreeMap;
 import javax.swing.JPanel;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -28,8 +30,8 @@ public class ArtistasPanel extends javax.swing.JPanel {
         TreeMap<String,Artista> Artistas;
         ControladorArtista control = new ControladorArtista();
         DefaultTableModel model = new DefaultTableModel();
-        int integrantesf = getFiltroIntegrantes();
-        String generof = getFiltroGenero();
+        
+        
         
         
         Artistas = control.getArtistas();
@@ -43,22 +45,24 @@ public class ArtistasPanel extends javax.swing.JPanel {
         
         model.setRowCount(0);
         for (Artista act:Artistas.values()) {
-            if(((integrantesf == act.getIntegrantes()) && generof.equals(act.getGeneroMusical())) || ((integrantesf == act.getIntegrantes()) || generof.equals(act.getGeneroMusical())) || (integrantesf == 0 && generof.isEmpty())){
+            
                 Object[] fila = {
                     act.getId(),
                     act.getNombre(),
                     act.getGeneroMusical(),
-                    act.getIntegrantes(),
+                    String.valueOf(act.getIntegrantes()),
                     act.getRango(),
                 };
                 System.out.println(act);
                 model.addRow(fila);
-            }
+                
+            
         }
         //TablaArtistas.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
         //TablaArtistas.getColumnModel().getColumn(5).setCellEditor(new ButtonEditor(new JCheckBox(), TablaArtistas));
     
     }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -141,9 +145,21 @@ public class ArtistasPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Integrantes:");
 
+        integrantesFiltroFild.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                integrantesFiltroFildKeyTyped(evt);
+            }
+        });
+
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Genero Musical:");
+
+        GeneroFiltroFild.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                GeneroFiltroFildKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout BTNPanelLayout = new javax.swing.GroupLayout(BTNPanel);
         BTNPanel.setLayout(BTNPanelLayout);
@@ -181,7 +197,7 @@ public class ArtistasPanel extends javax.swing.JPanel {
                     .addComponent(integrantesFiltroFild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(GeneroFiltroFild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(BTNPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AgregarArtistaBTN)
                     .addComponent(EliminarArtistaBTN)
@@ -206,7 +222,7 @@ public class ArtistasPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(bodyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BTNPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                .addComponent(BTNPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                 .addGap(21, 21, 21))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -234,8 +250,28 @@ public class ArtistasPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_AgregarArtistaBTNActionPerformed
 
     private void FiltrarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarBTNActionPerformed
-        MostrarLista();
+
     }//GEN-LAST:event_FiltrarBTNActionPerformed
+
+    private void GeneroFiltroFildKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GeneroFiltroFildKeyTyped
+        TableRowSorter trsfiltroId;
+        String genero = GeneroFiltroFild.getText().toUpperCase();
+        
+            trsfiltroId = new TableRowSorter(TablaArtistas.getModel());
+            trsfiltroId.setRowFilter(RowFilter.regexFilter(genero,2));
+            TablaArtistas.setRowSorter(trsfiltroId);
+        
+    }//GEN-LAST:event_GeneroFiltroFildKeyTyped
+
+    private void integrantesFiltroFildKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_integrantesFiltroFildKeyTyped
+        TableRowSorter trsfiltroId;
+        String integrantes = integrantesFiltroFild.getText();
+        
+            trsfiltroId = new TableRowSorter(TablaArtistas.getModel());
+            trsfiltroId.setRowFilter(RowFilter.regexFilter(integrantes,3));
+            TablaArtistas.setRowSorter(trsfiltroId);
+        
+    }//GEN-LAST:event_integrantesFiltroFildKeyTyped
 
     public void setBackground(JPanel panel) {
        

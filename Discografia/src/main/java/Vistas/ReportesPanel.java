@@ -122,8 +122,8 @@ public class ReportesPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VentaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentaBTNActionPerformed
-        //VentaPanel panel = new VentaPanel();
-        //setBackground(panel);
+        VentaPanel panel = new VentaPanel();
+        setBackground(panel);
     }//GEN-LAST:event_VentaBTNActionPerformed
 
 

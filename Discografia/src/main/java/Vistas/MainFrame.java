@@ -231,7 +231,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_LiquidasionesBTNActionPerformed
 
     private void ReportesBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportesBTNActionPerformed
-        // TODO add your handling code here:
+        ReportesPanel panel = new ReportesPanel();
+        setBackground(panel);
     }//GEN-LAST:event_ReportesBTNActionPerformed
 
     private void GuardarSalirBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarSalirBTNActionPerformed

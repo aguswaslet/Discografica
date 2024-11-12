@@ -53,7 +53,9 @@ public class GeneradorIDArtista implements Serializable{
     }
     
     public static void Actualiza(String id){
+        cargarEstado();
         ultimoId = id;
+        nuevoId();
         guardarEstado();
     }
     

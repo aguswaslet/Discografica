@@ -121,6 +121,27 @@ public class ControladorDisco {
         guardar();
     }
     
+    public String Detalle(String owner){
+        String detalle="";
+        int uvendidas = 0;
+        int i = 0;
+        discos = cargar();
+        for(Disco act:discos.values()){
+            if(act.getOwner().equals(owner)){
+                i++;
+                uvendidas+= act.getUnidadesVendidas();
+                detalle += "\nDisco "+i+" : "+act.getNombre()+"  Vendidos: "+act.getUnidadesVendidas();
+            }
+        }
+        
+        if(i>0){
+            detalle += "\n\n Promedio de discos vendidos: "+uvendidas/i;
+        }
+        
+        
+        return detalle;
+    }
+    
     public TreeMap<Integer,Disco> getDiscos(){
         return cargar();
     }

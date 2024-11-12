@@ -33,7 +33,8 @@ public class GeneradorIDRecital implements Serializable{
     }
     
     public static void Actualiza(int id){
-        ultimoId = id;
+        cargarEstado();
+        ultimoId = ++id;
         guardarEstado();
     }
     

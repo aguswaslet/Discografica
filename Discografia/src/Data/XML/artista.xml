@@ -1,35 +1,332 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <artistas>
-	<artista id="1">
-    		<Nombre>Banda Ejemplo</Nombre>
-    		<Integrantes>4</Integrantes>
-    		<GeneroMusical>Rock</GeneroMusical>
-   		<Discos>
-        		<Disco id="1">
-            			<Nombre>Disco 1</Nombre>
-            			<UnidadesVendidas>1000</UnidadesVendidas>
-            			<Canciones>
-                			<Cancion id="1">
-                    				<Nombre>Cancion 1</Nombre>
-                    				<Minutos>3</Minutos>
-						<Segundos>40</Segundos>
-                    				<Reproducciones>5000</Reproducciones>
-                			</Cancion>
-                			<Cancion id="2">
-                    				<Nombre>Cancion 2</Nombre>
-                    				<Minutos>3</Minutos>
-						<Segundos>40</Segundos>
-                    				<Reproducciones>3000</Reproducciones>
-                			</Cancion>
-            			</Canciones>
-        		</Disco>
-    		</Discos>
-    		<Recitales>
-        		<Recital id="1">
-            			<Fecha>2024-10-20</Fecha>
-            			<Recaudacion>20000</Recaudacion>
-            			<Costos>5000</Costos>
-        		</Recital>
-    		</Recitales>
-	</artista>
+    <emergente id="AAAAAA">
+        <Nombre>Arctic Monkeys</Nombre>
+        <Integrantes>4</Integrantes>
+        <GeneroMusical>Rock Alternativo</GeneroMusical>
+        <Discos>
+            <Disco id="1">
+                <Nombre>Whatever People Say I Am</Nombre>
+                <UnidadesVendidas>85000</UnidadesVendidas>
+                <Canciones>
+                    <Cancion id="1">
+                        <Nombre>I Bet You Look Good on the Dancefloor</Nombre>
+                        <Minutos>2</Minutos>
+                        <Segundos>53</Segundos>
+                        <Reproducciones>150000</Reproducciones>
+                    </Cancion>
+                    <Cancion id="2">
+                        <Nombre>When the Sun Goes Down</Nombre>
+                        <Minutos>3</Minutos>
+                        <Segundos>20</Segundos>
+                        <Reproducciones>120000</Reproducciones>
+                    </Cancion>
+                </Canciones>
+            </Disco>
+        </Discos>
+        <Recitales>
+            <Recital id="1">
+                <Fecha>15/11/2024</Fecha>
+                <Recaudacion>75000</Recaudacion>
+                <Costos>25000</Costos>
+            </Recital>
+        </Recitales>
+    </emergente>
+
+    <consagrado id="AAAAAB">
+        <Nombre>The Strokes</Nombre>
+        <Integrantes>5</Integrantes>
+        <GeneroMusical>Rock Indie</GeneroMusical>
+        <Discos>
+            <Disco id="2">
+                <Nombre>Is This It</Nombre>
+                <UnidadesVendidas>200000</UnidadesVendidas>
+                <Canciones>
+                    <Cancion id="3">
+                        <Nombre>Last Nite</Nombre>
+                        <Minutos>3</Minutos>
+                        <Segundos>13</Segundos>
+                        <Reproducciones>500000</Reproducciones>
+                    </Cancion>
+                    <Cancion id="4">
+                        <Nombre>Someday</Nombre>
+                        <Minutos>3</Minutos>
+                        <Segundos>03</Segundos>
+                        <Reproducciones>450000</Reproducciones>
+                    </Cancion>
+                </Canciones>
+            </Disco>
+        </Discos>
+        <Recitales>
+            <Recital id="2">
+                <Fecha>20/12/2024</Fecha>
+                <Recaudacion>150000</Recaudacion>
+                <Costos>50000</Costos>
+            </Recital>
+        </Recitales>
+    </consagrado>
+
+    <emergente id="AAAAAC">
+        <Nombre>Tame Impala</Nombre>
+        <Integrantes>1</Integrantes>
+        <GeneroMusical>Psychedelic Pop</GeneroMusical>
+        <Discos>
+            <Disco id="3">
+                <Nombre>Currents</Nombre>
+                <UnidadesVendidas>95000</UnidadesVendidas>
+                <Canciones>
+                    <Cancion id="5">
+                        <Nombre>Let It Happen</Nombre>
+                        <Minutos>7</Minutos>
+                        <Segundos>46</Segundos>
+                        <Reproducciones>300000</Reproducciones>
+                    </Cancion>
+                    <Cancion id="6">
+                        <Nombre>The Less I Know The Better</Nombre>
+                        <Minutos>3</Minutos>
+                        <Segundos>38</Segundos>
+                        <Reproducciones>600000</Reproducciones>
+                    </Cancion>
+                </Canciones>
+            </Disco>
+        </Discos>
+        <Recitales>
+            <Recital id="3">
+                <Fecha>05/11/2024</Fecha>
+                <Recaudacion>85000</Recaudacion>
+                <Costos>30000</Costos>
+            </Recital>
+        </Recitales>
+    </emergente>
+
+    <consagrado id="AAAAAD">
+        <Nombre>Radiohead</Nombre>
+        <Integrantes>5</Integrantes>
+        <GeneroMusical>Rock Alternativo</GeneroMusical>
+        <Discos>
+            <Disco id="4">
+                <Nombre>OK Computer</Nombre>
+                <UnidadesVendidas>500000</UnidadesVendidas>
+                <Canciones>
+                    <Cancion id="7">
+                        <Nombre>Paranoid Android</Nombre>
+                        <Minutos>6</Minutos>
+                        <Segundos>23</Segundos>
+                        <Reproducciones>800000</Reproducciones>
+                    </Cancion>
+                    <Cancion id="8">
+                        <Nombre>Karma Police</Nombre>
+                        <Minutos>4</Minutos>
+                        <Segundos>21</Segundos>
+                        <Reproducciones>750000</Reproducciones>
+                    </Cancion>
+                </Canciones>
+            </Disco>
+        </Discos>
+        <Recitales>
+            <Recital id="4">
+                <Fecha>10/12/2024</Fecha>
+                <Recaudacion>250000</Recaudacion>
+                <Costos>80000</Costos>
+            </Recital>
+        </Recitales>
+    </consagrado>
+
+    <emergente id="AAAAAE">
+        <Nombre>King Gizzard and The Lizard Wizard</Nombre>
+        <Integrantes>6</Integrantes>
+        <GeneroMusical>Rock Psicodélico</GeneroMusical>
+        <Discos>
+            <Disco id="5">
+                <Nombre>Nonagon Infinity</Nombre>
+                <UnidadesVendidas>45000</UnidadesVendidas>
+                <Canciones>
+                    <Cancion id="9">
+                        <Nombre>Robot Stop</Nombre>
+                        <Minutos>5</Minutos>
+                        <Segundos>22</Segundos>
+                        <Reproducciones>200000</Reproducciones>
+                    </Cancion>
+                    <Cancion id="10">
+                        <Nombre>Gamma Knife</Nombre>
+                        <Minutos>4</Minutos>
+                        <Segundos>22</Segundos>
+                        <Reproducciones>180000</Reproducciones>
+                    </Cancion>
+                </Canciones>
+            </Disco>
+        </Discos>
+        <Recitales>
+            <Recital id="5">
+                <Fecha>25/11/2024</Fecha>
+                <Recaudacion>65000</Recaudacion>
+                <Costos>25000</Costos>
+            </Recital>
+        </Recitales>
+    </emergente>
+
+    <consagrado id="AAAAAF">
+        <Nombre>Foo Fighters</Nombre>
+        <Integrantes>5</Integrantes>
+        <GeneroMusical>Rock</GeneroMusical>
+        <Discos>
+            <Disco id="6">
+                <Nombre>The Colour and the Shape</Nombre>
+                <UnidadesVendidas>350000</UnidadesVendidas>
+                <Canciones>
+                    <Cancion id="11">
+                        <Nombre>Everlong</Nombre>
+                        <Minutos>4</Minutos>
+                        <Segundos>10</Segundos>
+                        <Reproducciones>900000</Reproducciones>
+                    </Cancion>
+                    <Cancion id="12">
+                        <Nombre>My Hero</Nombre>
+                        <Minutos>4</Minutos>
+                        <Segundos>20</Segundos>
+                        <Reproducciones>700000</Reproducciones>
+                    </Cancion>
+                </Canciones>
+            </Disco>
+        </Discos>
+        <Recitales>
+            <Recital id="6">
+                <Fecha>30/11/2024</Fecha>
+                <Recaudacion>300000</Recaudacion>
+                <Costos>100000</Costos>
+            </Recital>
+        </Recitales>
+    </consagrado>
+
+    <emergente id="AAAAAG">
+        <Nombre>MGMT</Nombre>
+        <Integrantes>2</Integrantes>
+        <GeneroMusical>Indie Pop</GeneroMusical>
+        <Discos>
+            <Disco id="7">
+                <Nombre>Oracular Spectacular</Nombre>
+                <UnidadesVendidas>120000</UnidadesVendidas>
+                <Canciones>
+                    <Cancion id="13">
+                        <Nombre>Kids</Nombre>
+                        <Minutos>5</Minutos>
+                        <Segundos>03</Segundos>
+                        <Reproducciones>850000</Reproducciones>
+                    </Cancion>
+                    <Cancion id="14">
+                        <Nombre>Time to Pretend</Nombre>
+                        <Minutos>4</Minutos>
+                        <Segundos>21</Segundos>
+                        <Reproducciones>750000</Reproducciones>
+                    </Cancion>
+                </Canciones>
+            </Disco>
+        </Discos>
+        <Recitales>
+            <Recital id="7">
+                <Fecha>05/12/2024</Fecha>
+                <Recaudacion>90000</Recaudacion>
+                <Costos>35000</Costos>
+            </Recital>
+        </Recitales>
+    </emergente>
+
+    <consagrado id="AAAAAH">
+        <Nombre>Pearl Jam</Nombre>
+        <Integrantes>5</Integrantes>
+        <GeneroMusical>Grunge</GeneroMusical>
+        <Discos>
+            <Disco id="8">
+                <Nombre>Ten</Nombre>
+                <UnidadesVendidas>650000</UnidadesVendidas>
+                <Canciones>
+                    <Cancion id="15">
+                        <Nombre>Alive</Nombre>
+                        <Minutos>5</Minutos>
+                        <Segundos>40</Segundos>
+                        <Reproducciones>950000</Reproducciones>
+                    </Cancion>
+                    <Cancion id="16">
+                        <Nombre>Even Flow</Nombre>
+                        <Minutos>4</Minutos>
+                        <Segundos>53</Segundos>
+                        <Reproducciones>850000</Reproducciones>
+                    </Cancion>
+                </Canciones>
+            </Disco>
+        </Discos>
+        <Recitales>
+            <Recital id="8">
+                <Fecha>15/12/2024</Fecha>
+                <Recaudacion>400000</Recaudacion>
+                <Costos>150000</Costos>
+            </Recital>
+        </Recitales>
+    </consagrado>
+
+    <emergente id="AAAAAI">
+        <Nombre>Black Midi</Nombre>
+        <Integrantes>4</Integrantes>
+        <GeneroMusical>Math Rock</GeneroMusical>
+        <Discos>
+            <Disco id="9">
+                <Nombre>Schlagenheim</Nombre>
+                <UnidadesVendidas>25000</UnidadesVendidas>
+                <Canciones>
+                    <Cancion id="17">
+                        <Nombre>953</Nombre>
+                        <Minutos>5</Minutos>
+                        <Segundos>57</Segundos>
+                        <Reproducciones>150000</Reproducciones>
+                    </Cancion>
+                    <Cancion id="18">
+                        <Nombre>Speedway</Nombre>
+                        <Minutos>3</Minutos>
+                        <Segundos>31</Segundos>
+                        <Reproducciones>120000</Reproducciones>
+                    </Cancion>
+                </Canciones>
+            </Disco>
+        </Discos>
+        <Recitales>
+            <Recital id="9">
+                <Fecha>20/11/2024</Fecha>
+                <Recaudacion>45000</Recaudacion>
+                <Costos>20000</Costos>
+            </Recital>
+        </Recitales>
+    </emergente>
+
+    <consagrado id="AAAAAJ">
+        <Nombre>Red Hot Chili Peppers</Nombre>
+        <Integrantes>4</Integrantes>
+        <GeneroMusical>Rock Alternativo</GeneroMusical>
+        <Discos>
+            <Disco id="10">
+                <Nombre>Californication</Nombre>
+                <UnidadesVendidas>800000</UnidadesVendidas>
+                <Canciones>
+                    <Cancion id="19">
+                        <Nombre>Scar Tissue</Nombre>
+                        <Minutos>3</Minutos>
+                        <Segundos>37</Segundos>
+                        <Reproducciones>1000000</Reproducciones>
+                    </Cancion>
+                    <Cancion id="20">
+                        <Nombre>Otherside</Nombre>
+                        <Minutos>4</Minutos>
+                        <Segundos>15</Segundos>
+                        <Reproducciones>950000</Reproducciones>
+                    </Cancion>
+                </Canciones>
+            </Disco>
+        </Discos>
+        <Recitales>
+            <Recital id="10">
+                <Fecha>25/12/2024</Fecha>
+                <Recaudacion>500000</Recaudacion>
+                <Costos>200000</Costos>
+            </Recital>
+        </Recitales>
+    </consagrado>
 </artistas>

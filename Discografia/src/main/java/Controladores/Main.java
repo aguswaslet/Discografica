@@ -23,13 +23,11 @@ import java.util.TreeMap;
 public class Main {
     public static void main(String args[]) {
         
-        /*Discografia discografia;
-        discografia = GestorPermanencia.cargar();
-        
-        MainFrame mainf = new MainFrame(discografia);
+      
+        MainFrame mainf = new MainFrame();
         mainf.setVisible(true);
         System.out.println("hola mundo");
-        
+        /*
         TreeMap<String, Artista> artistas = new TreeMap<>();
         artistas= ControladorXML.leer();
         for (Artista artista : artistas.values()) {

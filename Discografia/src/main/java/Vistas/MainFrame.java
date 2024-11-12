@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import Controladores.ControladorXML;
 import java.awt.BorderLayout;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -21,6 +22,7 @@ public class MainFrame extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(1200, 700);
         this.FechaLB.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        ControladorXML.leer();
     }
 
     /**

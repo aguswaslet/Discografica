@@ -22,7 +22,7 @@ import java.util.Date;
 
 public class ControladorXML {
 
-    static String ruta = "Data/XML/artistaerr.xml";
+    static String ruta = "src/Data/XML/artista.xml";
 
 
     public static String getRuta() {
@@ -125,15 +125,25 @@ public class ControladorXML {
                         controlDisc.nuevoDisco(idDisco, idArtista, nombreDisco, univend);
                     }
                         
+                        
                         // Leer las canciones del disco 
-                        NodeList listaCanciones = elementoDisco.getElementsByTagName("Cancion");
+                        NodeList listaCanciones = elementoDisco.getElementsByTagName("Canciones").item(0).getChildNodes();
+
                         
                         for (int k = 0; k < listaCanciones.getLength(); k++) {
-                            Element elementoCancion = (Element) listaCanciones.item(k);
-
+                            Node nodo = listaCanciones.item(k);
+    
+    // Verificar si el nodo es un elemento (ignorar nodos de texto)
+    if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+        Element elementoCancion = (Element) nodo;
+        
+        // Verificar el nombre del nodo
+        esSencillo = elementoCancion.getNodeName().equals("Sencillo");
+                           
                            
                         // Distinguir entre Sencillo y Cancion
-                            esSencillo = elementoCancion.getNodeName().equals("Sencillo");
+                            
+                           
                             idCancion = Integer.parseInt(elementoCancion.getAttribute("id"));
                             try {
                                 nombreCancion = getTextValue(elementoCancion, "Nombre");
@@ -169,6 +179,7 @@ public class ControladorXML {
                         }
 
                      
+                    }
                     }
 
                  

@@ -11,12 +11,25 @@ package Modelos;
 public class Consagrado extends Artista{
     public Consagrado(){
         super();
-        set$rep((float)1.2);
-        set$UVendidas((float)55.75);
+        set$rep((float)0.12);
+        set$UVendidas((float)0.5575);
+        set$GananciasRecital((float)0.275);
     }
+    public Consagrado(String id){
+        super(id);
+        set$rep((float)0.12);
+        set$UVendidas((float)0.5575);
+        set$GananciasRecital((float)0.275);
+    }
+    
     
     @Override
     public String toString(){
-        return "Nombre: "+getNombre()+" / Consagrado / N° Integrantes: "+getIntegrantes();
+        return "Nombre: "+getNombre()+" / Consagrado / Nro. Integrantes: "+getIntegrantes();
+    }
+    
+    @Override
+    public String getRango(){
+        return "Consagrado";
     }
 }

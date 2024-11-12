@@ -4,24 +4,28 @@
  */
 package Modelos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author agust
  */
-public class Cancion {
+public class Cancion implements Serializable{
     private int id_cancion;
     private String Nombre;
     private int Reproducciones;
     private int Minutos;
     private int Segundos;
+    private String Owner;
+    private int Disco;
 
-    public Cancion(int id_cancion, String Nombre, int Reproducciones, int Minutos, int Segundos) {
+  
+
+    public Cancion(int id_cancion) {
         this.id_cancion = id_cancion;
-        this.Nombre = Nombre;
-        this.Reproducciones = Reproducciones;
-        this.Minutos = Minutos;
-        this.Segundos = Segundos;
+        GeneradorIDCancion.Actualiza(id_cancion);
     }
+    
     
     public Cancion() {
         id_cancion = GeneradorIDCancion.generarId();
@@ -29,6 +33,29 @@ public class Cancion {
         Reproducciones = 0;
         Minutos = 0;
         Segundos = 0;
+        Owner= "";
+        Disco = 0;
+    }
+    
+    public int getDisco(){
+        return Disco;
+    }
+    
+    public void setDisco(int disco){
+        Disco = disco;
+    }
+    
+    public void setOwner(String o){
+        
+        this.Owner = o.toUpperCase();
+    }
+    
+    public String getOwner(){
+        return this.Owner;
+    }
+    
+    public String getTipo(){
+        return "Cancion";
     }
 
     public int getId() {
@@ -82,7 +109,12 @@ public class Cancion {
     }
     
     public String getDuracion(){
-        return getMinutos()+":"+getSegundos()+"";
+        int segundos = getSegundos();
+        if(segundos<10){
+            return getMinutos()+":0"+segundos+"";
+        }else{
+            return getMinutos()+":"+segundos+"";
+        }
     }
     
     public float Regalias(){

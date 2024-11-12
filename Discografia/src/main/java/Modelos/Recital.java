@@ -4,34 +4,47 @@
  */
 package Modelos;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  *
  * @author agust
  */
-public class Recital {
+public class Recital implements Serializable{
     private int id_recital;
-    private LocalDate Fecha;
+    private Date Fecha;
+    private String Owner;
     private float Recaudacion;
     private float Costo;
 
-    public Recital(int id,LocalDate Fecha, float Recaudacion, float Costo) {
-        this.id_recital = id;
-        this.Fecha = Fecha;
-        this.Recaudacion = Recaudacion;
-        this.Costo = Costo;
+ 
+
+    public Recital(int id_recital) {
+        this.id_recital = id_recital;
+        GeneradorIDRecital.Actualiza(id_recital);
     }
+    
+    
     
     public Recital(){
         id_recital = GeneradorIDRecital.generarId();
-        Fecha = LocalDate.now();
+        Owner = "";
         Recaudacion = 0;
         Costo = 0;
     }
 
-    public int getId_recital() {
+    public int getId() {
         return id_recital;
+    }
+    
+    public void setOwner(String o){
+        this.Owner = o.toUpperCase();
+    }
+    
+    public String getOwner(){
+        return this.Owner;
     }
 
     public void setId_recital(int id_recital) {
@@ -39,11 +52,11 @@ public class Recital {
     }
 
     
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return Fecha;
     }
 
-    public void setFecha(LocalDate Fecha) {
+    public void setFecha(Date Fecha) {
         this.Fecha = Fecha;
     }
 

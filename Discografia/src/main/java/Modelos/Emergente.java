@@ -4,6 +4,8 @@
  */
 package Modelos;
 
+import java.util.TreeMap;
+
 /**
  *
  * @author agust
@@ -12,10 +14,24 @@ public class Emergente extends Artista{
     public Emergente(){
         super();
         set$rep((float)0.20);
-        set$UVendidas((float)23.15);
+        set$UVendidas((float)0.2315);
+        set$GananciasRecital((float)0.2105);
     }
+    
+    public Emergente(String id){
+        super(id);
+        set$rep((float)0.20);
+        set$UVendidas((float)0.2315);
+        set$GananciasRecital((float)0.2105);
+    }
+    
     @Override
     public String toString(){
-        return "Nombre: "+getNombre()+" / Emergente / N° Integrantes: "+getIntegrantes();
+        return "Nombre: "+getNombre()+" / Emergente / Nro. Integrantes: "+getIntegrantes();
+    }
+    
+    @Override
+    public String getRango(){
+        return "Emergente";
     }
 }

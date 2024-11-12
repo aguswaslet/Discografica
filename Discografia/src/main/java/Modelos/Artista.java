@@ -4,33 +4,28 @@
  */
 package Modelos;
 
-import java.util.ArrayList;
-import java.util.TreeMap;
+import java.io.Serializable;
 
 /**
  *
  * @author agust
  */
-public class Artista {
+public class Artista implements Serializable{
     String id_artista;
     String Nombre;
     int Integrantes;
     String GeneroMusical;
-    TreeMap<Integer,Disco> Discos;
-    TreeMap<Integer,Recital> Recitales;
     float $rep=0;
     float $UVendidas=0;
     float $GananciasRecital=0;
 
 
-    public Artista(String id_artista, String Nombre, int Integrantes, String GeneroMusical, TreeMap<Integer, Disco> Discos, TreeMap<Integer, Recital> Recitales)
+    public Artista(String id_artista, String Nombre, int Integrantes, String GeneroMusical)
         {
         this.id_artista = id_artista;
-        this.Nombre = Nombre;
+        this.Nombre = Nombre.toUpperCase();
         this.Integrantes = Integrantes;
-        this.GeneroMusical = GeneroMusical;
-        this.Discos = Discos;
-        this.Recitales = Recitales;
+        this.GeneroMusical = GeneroMusical.toUpperCase();
     }
     
     public Artista() {
@@ -39,9 +34,20 @@ public class Artista {
 
         //id_artista = GeneradorID.generarId();
     }
+    public Artista(String id) {
 
-    public Artista(String id_artista) {
+        id_artista = id;
+        GeneradorIDArtista.Actualiza(id);
+        //id_artista = GeneradorID.generarId();
+    }
+
+    public String getRango(){
+        return "";
+    }
+    
+    public void Artista(String id_artista) {
         this.id_artista = id_artista;
+        GeneradorIDArtista.generarId();
     }
 
     public float get$rep() {
@@ -81,7 +87,7 @@ public class Artista {
     }
 
     public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+        this.Nombre = Nombre.toUpperCase();
     }
 
     public int getIntegrantes() {
@@ -97,54 +103,10 @@ public class Artista {
     }
 
     public void setGeneroMusical(String GeneroMusical) {
-        this.GeneroMusical = GeneroMusical;
-    }
-
-
-    public TreeMap<Integer, Disco> getDiscos() {
-        return Discos;
-    }
-
-    public void setDiscos(TreeMap<Integer, Disco> Discos) {
-        this.Discos = Discos;
-    }
-
-    public TreeMap<Integer,Recital> getRecitales() {
-        return Recitales;
-    }
-
-    public void setRecitales(TreeMap<Integer, Recital> Recitales) {
-        this.Recitales = Recitales;
+        this.GeneroMusical = GeneroMusical.toUpperCase();
     }
     
-    public float regalias(){
-        ArrayList<Disco> Disc_aux;
-        ArrayList<Recital> Rec_aux;
-        float Total=0,unidades,reproducciones;
-        
-        Disc_aux = (ArrayList)getDiscos().values();
-        
-        unidades = 0;
-        reproducciones=0;
-        for(Disco n:Disc_aux){
-            unidades += n.getUnidadesVendidas();
-            reproducciones += n.TotalReproducciones();
-        }
-        
-        Total = (unidades*$UVendidas) + (reproducciones*$rep);
-        
-        Rec_aux = (ArrayList)getRecitales().values();
-        reproducciones=0;
-
-        for(Recital n:Rec_aux){
-            unidades += n.getNeto();
-        }
-            
-        Total += (float)(unidades*$GananciasRecital);
-        
-        return Total;
-    }    
-    
+    /*
     public void info(){
         ArrayList<Disco> Disc_aux = (ArrayList)Discos.values();
         ArrayList<Recital> Rec_aux = (ArrayList)Recitales.values();
@@ -157,4 +119,5 @@ public class Artista {
             n.info();
         }
     }
+*/
 }

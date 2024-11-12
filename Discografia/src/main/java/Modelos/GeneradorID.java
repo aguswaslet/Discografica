@@ -18,8 +18,8 @@ import javax.swing.JOptionPane;
  * @author agust
  */
 public class GeneradorID implements Serializable{
-    private static int ultimoId = 0;
-    private static final String fileName = "GeneradorId.ser";
+    private static int ultimoId = -1;
+    private static final String fileName = "src/Data/Serialisados/GeneradorId.ser";
 
     // Método para generar un nuevo ID
     public static int generarId() {
@@ -39,6 +39,7 @@ public class GeneradorID implements Serializable{
             try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
                 oos.writeObject(ultimoId);
                 System.out.println("Estado guardado exitosamente.");
+                oos.close();
             } catch (IOException e) {
                JOptionPane.showMessageDialog(null, e.toString());
             }
@@ -51,9 +52,10 @@ public class GeneradorID implements Serializable{
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
             ultimoId = (int) ois.readObject();
             System.out.println("Estado cargado exitosamente.");
+            ois.close();
         } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, e.toString());
-            System.out.println("El archivo de estados no existe. Creando nuevo archivo.");
+            System.out.println("El archivo GeneradorId no existe. Creando nuevo archivo.");
             guardarEstado(); // Crear nuevo archivo y guardar estado inicial
         }
     }

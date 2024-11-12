@@ -9,7 +9,12 @@ import Vistas.MainFrame;
  */
 public class Main {
     public static void main(String[] args){
-        Discografia adm;
+       
+        
+        MainFrame mainf = new MainFrame();
+        mainf.setVisible(true);
+        System.out.println("hola mundo");
+        /*Discografia adm;
         GestorPermanencia gestor = new GestorPermanencia();
         
         adm = gestor.cargar();
@@ -18,6 +23,6 @@ public class Main {
         if(!VentanaMain.isVisible()){
             gestor.guardar(adm);
         }
-    }
+    */}
 }
 

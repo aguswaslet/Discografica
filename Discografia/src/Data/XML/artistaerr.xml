@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<artistas>
+	<emergente id="AAAAAA">
+    		<Nombre>Banda Ejemplo</Nombre>
+    		<Integrantes>5</Integrantes>
+    		<GeneroMusical>Rock</GeneroMusical>
+   		<Discos>
+        		<Disco id="1">
+            			<Nombre>Disco 1</Nombre>
+            			<UnidadesVendidas>1000</UnidadesVendidas>
+            			<Canciones>
+                			<Cancion id="1">
+                    				<Nombre>Cancion 1</Nombre>
+                    				<Minutos>3</Minutos>
+						<Segundos>40</Segundos>
+                    				<Reproducciones>5000</Reproducciones>
+                			</Cancion>
+                			<Cancion id="2">
+                    				<Nombre>Cancion 2</Nombre>
+                    				<Minutos>3</Minutos>
+						<Segundos>40</Segundos>
+                    				<Reproducciones>3000</Reproducciones>
+                			</Cancion>
+            			</Canciones>
+        		</Disco>
+    		</Discos>
+    		<Recitales>
+        		<Recital id="1">
+            			<Fecha>20/10/2024</Fecha>
+            			<Recaudacion>20000</Recaudacion>
+            			<Costos>5000</Costos>
+        		</Recital>
+    		</Recitales>
+	</emergente>
+	<consagrado id="AAAAAB">
+    		<Nombre>Banda Ejemplo</Nombre>
+    		<Integrantes>5</Integrantes>
+    		<GeneroMusical>Rock</GeneroMusical>
+   		<Discos>
+        		<Disco id="2">
+            			<Nombre>Disco 2</Nombre>
+            			<UnidadesVendidas>1000</UnidadesVendidas>
+            			<Canciones>
+                			<Sencillo id="3">
+                    				<Nombre>Cancion 3</Nombre>
+                    				<Minutos>3</Minutos>
+						<Segundos>40</Segundos>
+                    				<Reproducciones>5000</Reproducciones>
+                			</Sencillo>
+                			<Cancion id="4">
+                    				<Nombre>Cancion 4</Nombre>
+                    				<Minutos>3</Minutos>
+						<Segundos>40</Segundos>
+                    				<Reproducciones>3000</Reproducciones>
+                			</Cancion>
+            			</Canciones>
+        		</Disco>
+    		</Discos>
+    		<Recitales>
+        		<Recital id="2">
+            			<Fecha>20/10/2023</Fecha>
+            			<Recaudacion>20000</Recaudacion>
+            			<Costos>5000</Costos>
+        		</Recital>
+    		</Recitales>
+	</consagrado>
+</artistas>

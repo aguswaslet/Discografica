@@ -4,6 +4,7 @@
  */
 package Modelos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
@@ -11,35 +12,37 @@ import java.util.TreeMap;
  *
  * @author agust
  */
-public class Disco {
+public class Disco implements Serializable{
     private int id_disco;
+    private String Owner;
     private String Nombre;
     private int UnidadesVendidas;
-    private TreeMap<Integer,Cancion> Canciones;
-    
-    public Disco(int id_disco, String Nombre, int UnidadesVendidas, TreeMap<Integer,Cancion> Canciones) {
+
+    public Disco(int id_disco) {
         this.id_disco = id_disco;
-        this.Nombre = Nombre;
-        this.UnidadesVendidas = UnidadesVendidas;
-        this.Canciones = Canciones;
+        GeneradorIDDisco.Actualiza(id_disco);
     }
-
+    
+ 
     public Disco() {
-
         id_disco = GeneradorIDDisco.generarId();
-
     }
 
-    public int getId_disco() {
+    public int getId() {
         return id_disco;
     }
 
     public void setId_disco(int id_disco) {
         this.id_disco = id_disco;
-
     }
     
+    public void setOwner(String o){
+        this.Owner = o.toUpperCase();
+    }
     
+    public String getOwner(){
+        return this.Owner;
+    }
     
     public String getNombre() {
         return Nombre;
@@ -56,49 +59,8 @@ public class Disco {
     public void setUnidadesVendidas(int UnidadesVendidas) {
         this.UnidadesVendidas = UnidadesVendidas;
     }
-
-
-    public TreeMap<Integer,Cancion> getCanciones() {
-        return Canciones;
-    }
-
-    public void setCanciones(TreeMap<Integer, Cancion> Canciones) {
-        this.Canciones = Canciones;
-    }
     
-    public void addCancion(Cancion obj){
-        if(!Canciones.containsKey(obj.getNombre())){ 
-            Canciones.put(obj.getId(), obj);
-        }else{
-            System.out.println("("+obj.getNombre()+") ya se encuentra en el disco!");
-        }
+    public String toString(){
+        return Nombre+" / Unidades Vendidas: "+UnidadesVendidas;
     }
-    
-    public void deleteCacnion(int id){
-        if(Canciones.containsKey(id)){
-            Canciones.remove(id);
-        }else{
-            System.out.println("Cancion Inexistente! ("+id+")");
-        }
-    }    
-    
-    public float TotalReproducciones(){
-        ArrayList<Cancion> aux;
-        float total = 0;
-
-        aux = (ArrayList)getCanciones().values();
-        for(Cancion n:aux){
-            total += n.Regalias();
-        }
-        return total;
-    }
-    
-    public void info(){
-        ArrayList<Cancion> aux;
-        aux = (ArrayList)Canciones.values();
-        for(Cancion n: aux){
-            System.out.println(n);
-        }
-    }
-    
 }

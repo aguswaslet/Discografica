@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import Vistas.VentaPanel;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -56,6 +57,11 @@ public class ReportesPanel extends javax.swing.JPanel {
         top10BTN.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         top10BTN.setForeground(new java.awt.Color(255, 255, 255));
         top10BTN.setText("Top 10");
+        top10BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                top10BTNActionPerformed(evt);
+            }
+        });
 
         VentaBTN.setBackground(new java.awt.Color(0, 0, 0));
         VentaBTN.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -125,6 +131,11 @@ public class ReportesPanel extends javax.swing.JPanel {
         VentaPanel panel = new VentaPanel();
         setBackground(panel);
     }//GEN-LAST:event_VentaBTNActionPerformed
+
+    private void top10BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_top10BTNActionPerformed
+     Top10Panel panel = new Top10Panel();
+     setBackground(panel);
+    }//GEN-LAST:event_top10BTNActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
